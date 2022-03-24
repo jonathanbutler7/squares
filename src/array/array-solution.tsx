@@ -1,30 +1,15 @@
 import { useState } from 'react';
 import { Square } from '../square';
-import { getSquareNeighbors, ColorCodes } from '../shared';
-
-type Neighbors = {
-  leftNeighbor: number;
-  rightNeighbor: number;
-  topNeighbor: number;
-  bottomNeighbor: number;
-};
+import {
+  getSquareNeighbors,
+  ColorCodes,
+  Neighbors,
+  getNextColorCode,
+} from '../shared';
 
 type ISquare = { colorCode: 0 | 1 | 2 | undefined };
 
 const GRID_SIZE = 4;
-
-const getNextColorCode = (prevCode: 0 | 1 | 2) => {
-  switch (prevCode) {
-    case ColorCodes.Red:
-      return ColorCodes.Blue;
-    case ColorCodes.Blue:
-      return ColorCodes.Green;
-    case ColorCodes.Green:
-      return ColorCodes.Green;
-    default:
-      return;
-  }
-};
 
 export const HooksSolution = () => {
   const [clicks, setClicks] = useState(0);
@@ -57,10 +42,6 @@ export const HooksSolution = () => {
     if (bottomNeighbor !== Infinity) {
       squares[bottomNeighbor].colorCode = 1;
     }
-    /*
-     * special consideration for this case because topNeighbor may
-     * equal 0, which is falsy, but a valid neighbor
-     */
     if (topNeighbor !== Infinity) {
       squares[topNeighbor].colorCode = 1;
     }

@@ -1,4 +1,4 @@
-import { ColorCodes } from './color-codes';
+import { ColorCodes } from '../constants/color-codes';
 
 export const getBackgroundColor = (colorCode: any) => {
   switch (colorCode) {

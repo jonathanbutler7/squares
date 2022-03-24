@@ -1,5 +1,10 @@
 import { useState } from 'react';
-import { getBackgroundColor, ColorCodes, getSquareNeighbors } from '../shared';
+import {
+  getBackgroundColor,
+  ColorCodes,
+  getSquareNeighbors,
+  Neighbors,getNextColorCode
+} from '../shared';
 
 const GRID_SIZE = 4;
 
@@ -11,22 +16,69 @@ for (let i = 0; i < GRID_SIZE * GRID_SIZE; i++) {
 
 const initialState = gridValues;
 
-const getNextColorCode = (prevCode: 0 | 1 | 2) => {
-  switch (prevCode) {
-    case ColorCodes.Red:
-      return ColorCodes.Blue;
-    case ColorCodes.Blue:
-      return ColorCodes.Green;
-    case ColorCodes.Green:
-      return ColorCodes.Green;
-    default:
-      return;
-  }
-};
+
 
 export const HashTableSolution = () => {
   const [squares, setSquares] = useState(initialState);
   const [clicks, setClicks] = useState(0);
+
+  const handleBlueClick = ({
+    squareId,
+    leftNeighbor,
+    rightNeighbor,
+    topNeighbor,
+    bottomNeighbor,
+  }: Neighbors & { squareId: number }) => {
+    return {
+      ...squares,
+      [squareId]: {
+        colorCode: getNextColorCode(squares[squareId].colorCode),
+      },
+      [leftNeighbor]: { colorCode: ColorCodes.Blue },
+      [rightNeighbor]: { colorCode: ColorCodes.Blue },
+      [topNeighbor]: { colorCode: ColorCodes.Blue },
+      [bottomNeighbor]: { colorCode: ColorCodes.Blue },
+    };
+  };
+
+  const handleGreenClick = ({
+    squareId,
+    leftNeighbor,
+    rightNeighbor,
+    topNeighbor,
+    bottomNeighbor,
+  }: Neighbors & { squareId: number }) => {
+    return {
+      ...squares,
+      [squareId]: {
+        colorCode: getNextColorCode(squares[squareId].colorCode),
+      },
+      [leftNeighbor]: {
+        colorCode:
+          squares[leftNeighbor].colorCode === ColorCodes.Red
+            ? ColorCodes.Blue
+            : ColorCodes.Green,
+      },
+      [rightNeighbor]: {
+        colorCode:
+          squares[rightNeighbor].colorCode === ColorCodes.Red
+            ? ColorCodes.Blue
+            : ColorCodes.Green,
+      },
+      [topNeighbor]: {
+        colorCode:
+          squares[topNeighbor].colorCode === ColorCodes.Red
+            ? ColorCodes.Blue
+            : ColorCodes.Green,
+      },
+      [bottomNeighbor]: {
+        colorCode:
+          squares[squareId].colorCode === ColorCodes.Red
+            ? ColorCodes.Blue
+            : ColorCodes.Green,
+      },
+    };
+  };
 
   const handleClick = (squareId: number) => {
     const { leftNeighbor, rightNeighbor, topNeighbor, bottomNeighbor } =
@@ -42,48 +94,22 @@ export const HashTableSolution = () => {
         };
       }
       if (squares[squareId].colorCode === ColorCodes.Blue) {
-        return {
-          ...squares,
-          [squareId]: {
-            colorCode: getNextColorCode(squares[squareId].colorCode),
-          },
-          [leftNeighbor]: { colorCode: ColorCodes.Blue },
-          [rightNeighbor]: { colorCode: ColorCodes.Blue },
-          [topNeighbor]: { colorCode: ColorCodes.Blue },
-          [bottomNeighbor]: { colorCode: ColorCodes.Blue },
-        };
+        handleBlueClick({
+          squareId,
+          leftNeighbor,
+          rightNeighbor,
+          topNeighbor,
+          bottomNeighbor,
+        });
       }
       if (squares[squareId].colorCode === ColorCodes.Green) {
-        return {
-          ...squares,
-          [squareId]: {
-            colorCode: getNextColorCode(squares[squareId].colorCode),
-          },
-          [leftNeighbor]: {
-            colorCode:
-              squares[leftNeighbor].colorCode === ColorCodes.Red
-                ? ColorCodes.Blue
-                : ColorCodes.Green,
-          },
-          [rightNeighbor]: {
-            colorCode:
-              squares[rightNeighbor].colorCode === ColorCodes.Red
-                ? ColorCodes.Blue
-                : ColorCodes.Green,
-          },
-          [topNeighbor]: {
-            colorCode:
-              squares[topNeighbor].colorCode === ColorCodes.Red
-                ? ColorCodes.Blue
-                : ColorCodes.Green,
-          },
-          [bottomNeighbor]: {
-            colorCode:
-              squares[squareId].colorCode === ColorCodes.Red
-                ? ColorCodes.Blue
-                : ColorCodes.Green,
-          },
-        };
+        handleGreenClick({
+          squareId,
+          leftNeighbor,
+          rightNeighbor,
+          topNeighbor,
+          bottomNeighbor,
+        });
       } else {
         return squares;
       }
