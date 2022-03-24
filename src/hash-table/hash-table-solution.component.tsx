@@ -39,37 +39,15 @@ export const HashTableSolution = () => {
     setIsGameOver(isGridAllGreen(squares));
   }, [squares]);
 
-  const handleBlueClick = ({
-    squareId,
-    leftNeighbor,
-    rightNeighbor,
-    topNeighbor,
-    bottomNeighbor,
-  }: Neighbors & { squareId: number }) => {
-    console.log(bottomNeighbor);
-    const newSquares = {
-      ...(leftNeighbor && {
-        [leftNeighbor]: { colorCode: ColorCodes.Blue },
-      }),
-      ...(rightNeighbor && {
-        [rightNeighbor]: { colorCode: ColorCodes.Blue },
-      }),
-      ...(topNeighbor !== undefined && {
-        [topNeighbor]: { colorCode: ColorCodes.Blue },
-      }),
-      ...(bottomNeighbor && {
-        [bottomNeighbor]: { colorCode: ColorCodes.Blue },
-      }),
-    };
-    return {
-      ...squares,
-      [squareId]: {
-        colorCode: ColorCodes.Green,
-      },
-      ...newSquares,
-    };
-  };
-  const getNextValue = (neighbor: number | undefined) => ({
+  const validateNeighborsAfterBlueClicked = (neighbor: number | undefined) => ({
+    ...(neighbor !== undefined && {
+      [neighbor]: { colorCode: ColorCodes.Blue },
+    }),
+  });
+
+  const validateNeighborsAfterGreenClicked = (
+    neighbor: number | undefined
+  ) => ({
     ...(neighbor !== undefined && {
       [neighbor]: {
         colorCode:
@@ -80,24 +58,39 @@ export const HashTableSolution = () => {
     }),
   });
 
+  const handleBlueClick = ({
+    squareId,
+    leftNeighbor,
+    rightNeighbor,
+    topNeighbor,
+    bottomNeighbor,
+  }: Neighbors & { squareId: number }) => ({
+    ...squares,
+    [squareId]: {
+      colorCode: ColorCodes.Green,
+    },
+    ...validateNeighborsAfterBlueClicked(leftNeighbor),
+    ...validateNeighborsAfterBlueClicked(rightNeighbor),
+    ...validateNeighborsAfterBlueClicked(topNeighbor),
+    ...validateNeighborsAfterBlueClicked(bottomNeighbor),
+  });
+
   const handleGreenClick = ({
     squareId,
     leftNeighbor,
     rightNeighbor,
     topNeighbor,
     bottomNeighbor,
-  }: Neighbors & { squareId: number }) => {
-    return {
-      ...squares,
-      [squareId]: {
-        colorCode: getNextColorCode(squares[squareId].colorCode),
-      },
-      ...getNextValue(leftNeighbor),
-      ...getNextValue(rightNeighbor),
-      ...getNextValue(topNeighbor),
-      ...getNextValue(bottomNeighbor),
-    };
-  };
+  }: Neighbors & { squareId: number }) => ({
+    ...squares,
+    [squareId]: {
+      colorCode: getNextColorCode(squares[squareId].colorCode),
+    },
+    ...validateNeighborsAfterGreenClicked(leftNeighbor),
+    ...validateNeighborsAfterGreenClicked(rightNeighbor),
+    ...validateNeighborsAfterGreenClicked(topNeighbor),
+    ...validateNeighborsAfterGreenClicked(bottomNeighbor),
+  });
 
   const handleClick = (squareId: number) => {
     const neighbors = getSquareNeighbors({ squareId, gridSize });

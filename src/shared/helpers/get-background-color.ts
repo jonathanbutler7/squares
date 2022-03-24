@@ -1,6 +1,7 @@
 import { ColorCodes, ColorRGBValues } from '../constants';
+import { IColorCode } from '../types';
 
-export const getBackgroundColor = (colorCode: 0 | 1 | 2 | undefined) => {
+export const getBackgroundColor = (colorCode: IColorCode) => {
   switch (colorCode) {
     case ColorCodes.Red:
       return ColorRGBValues.Red;

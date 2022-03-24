@@ -7,9 +7,10 @@ import {
   getNextColorCode,
   GameStatus,
   Grid,
+  IColorCode,
 } from '../shared';
 
-type ISquare = { colorCode: 0 | 1 | 2 | undefined };
+type ISquare = { colorCode: IColorCode };
 
 const GRID_SIZE = 4;
 
@@ -99,7 +100,7 @@ export const ArraySolution = () => {
 
   const handleClick = (squareId: number) => {
     const neighbors = getSquareNeighbors({ squareId, gridSize });
-    console.log(squareId, gridSize, neighbors);
+
     setSquares(
       squares.map((square, index) => {
         if (index === squareId) {

@@ -1,6 +1,7 @@
 import { ColorCodes } from '../constants/color-codes';
+import { IColorCode } from '../types';
 
-export const getNextColorCode = (prevCode: 0 | 1 | 2 | undefined) => {
+export const getNextColorCode = (prevCode: IColorCode) => {
   switch (prevCode) {
     case ColorCodes.Red:
       return ColorCodes.Blue;

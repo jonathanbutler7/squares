@@ -5,4 +5,6 @@ export type Neighbors = {
   bottomNeighbor: number | undefined;
 };
 
-export type ISquare = Record<number, { colorCode: 0 | 1 | 2 | undefined }>;
+export type IColorCode = 0 | 1 | 2 | undefined;
+
+export type ISquare = Record<number, { colorCode: IColorCode }>;

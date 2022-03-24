@@ -1,6 +1,6 @@
-import { getBackgroundColor } from '..';
+import { getBackgroundColor, IColorCode } from '..';
 
-type SquareProps = { colorCode: 0 | 1 | 2 | undefined; onClick: () => void };
+type SquareProps = { colorCode: IColorCode; onClick: () => void };
 
 export const Square = ({ colorCode, onClick }: SquareProps) => (
   <button
