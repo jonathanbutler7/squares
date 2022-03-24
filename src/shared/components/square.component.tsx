@@ -1,4 +1,4 @@
-import { getBackgroundColor } from '../';
+import { getBackgroundColor } from '..';
 
 type SquareProps = { colorCode: 0 | 1 | 2 | undefined; onClick: () => void };
 

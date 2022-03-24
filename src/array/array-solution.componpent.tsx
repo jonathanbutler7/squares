@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Square } from '../shared/components/square';
+import { Square } from '../shared/components/square.component';
 import {
   getSquareNeighbors,
   ColorCodes,
@@ -99,7 +99,7 @@ export const ArraySolution = () => {
 
   const handleClick = (squareId: number) => {
     const neighbors = getSquareNeighbors({ squareId, gridSize });
-
+    console.log(squareId, gridSize, neighbors);
     setSquares(
       squares.map((square, index) => {
         if (index === squareId) {
@@ -133,7 +133,7 @@ export const ArraySolution = () => {
           />
         ))}
       </Grid>
-      
+
       <GameStatus
         isGameOver={isGameOver}
         clicks={clicks}

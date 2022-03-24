@@ -1,3 +1,3 @@
-export * from './square';
-export * from './game-status';
-export * from './grid';
+export * from './square.component';
+export * from './game-status.component';
+export * from './grid.component';
