@@ -101,7 +101,7 @@ export const DocumentApiSolution = () => {
                   incrementClicksCount();
                 }}
                 style={{ background: ColorRGBValues.Red }}
-              />
+              ></button>
             ))}
           </div>
         ))}

@@ -2,12 +2,12 @@ import { useEffect, useState } from 'react';
 import {
   ColorCodes,
   getSquareNeighbors,
-  getNextColorCode,
   ISquare,
   GameStatus,
   Grid,
   Square,
   GRID_SIZE,
+  Neighbor,
 } from '../../shared';
 
 const assembleGrid = (gridSize: number) => {
@@ -30,7 +30,6 @@ const isGridAllGreen = (squares: ISquare) =>
 export const HashTableSolution = () => {
   const [squares, setSquares] = useState(initialState);
   const [clicks, setClicks] = useState(0);
-  const [gridSize, setGridSize] = useState(GRID_SIZE);
   const [isGameOver, setIsGameOver] = useState(false);
 
   useEffect(() => {
@@ -42,15 +41,13 @@ export const HashTableSolution = () => {
     setSquares(initialState);
   };
 
-  const validateNeighborsAfterBlueClicked = (neighbor: number | undefined) => ({
+  const validateNeighborsAfterBlueClicked = (neighbor: Neighbor) => ({
     ...(neighbor !== undefined && {
       [neighbor]: { colorCode: ColorCodes.Blue },
     }),
   });
 
-  const validateNeighborsAfterGreenClicked = (
-    neighbor: number | undefined
-  ) => ({
+  const validateNeighborsAfterGreenClicked = (neighbor: Neighbor) => ({
     ...(neighbor !== undefined && {
       [neighbor]: {
         colorCode:
@@ -63,23 +60,19 @@ export const HashTableSolution = () => {
 
   const handleClick = (squareId: number) => {
     const { leftNeighbor, rightNeighbor, topNeighbor, bottomNeighbor } =
-      getSquareNeighbors({ squareId, gridSize });
+      getSquareNeighbors({ squareId, gridSize: GRID_SIZE });
 
     setSquares((squares) => {
       if (squares[squareId].colorCode === ColorCodes.Red) {
         return {
           ...squares,
-          [squareId]: {
-            colorCode: getNextColorCode(squares[squareId].colorCode),
-          },
+          [squareId]: { colorCode: ColorCodes.Blue },
         };
       }
       if (squares[squareId].colorCode === ColorCodes.Blue) {
         return {
           ...squares,
-          [squareId]: {
-            colorCode: ColorCodes.Green,
-          },
+          [squareId]: { colorCode: ColorCodes.Green },
           ...validateNeighborsAfterBlueClicked(topNeighbor),
           ...validateNeighborsAfterBlueClicked(bottomNeighbor),
           ...validateNeighborsAfterBlueClicked(leftNeighbor),
@@ -89,9 +82,6 @@ export const HashTableSolution = () => {
       if (squares[squareId].colorCode === ColorCodes.Green) {
         return {
           ...squares,
-          [squareId]: {
-            colorCode: getNextColorCode(squares[squareId].colorCode),
-          },
           ...validateNeighborsAfterGreenClicked(topNeighbor),
           ...validateNeighborsAfterGreenClicked(bottomNeighbor),
           ...validateNeighborsAfterGreenClicked(leftNeighbor),

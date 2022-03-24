@@ -3,12 +3,12 @@ import {
   Square,
   getSquareNeighbors,
   ColorCodes,
-  Neighbors,
   getNextColorCode,
   GameStatus,
   Grid,
   IColorCode,
   GRID_SIZE,
+  Neighbor,
 } from '../../shared';
 
 type ISquare = { colorCode: IColorCode };
@@ -18,9 +18,8 @@ const isGridAllGreen = (squares: ISquare[]) =>
 
 export const ArraySolution = () => {
   const [clicks, setClicks] = useState(0);
-  const [gridSize, setGridSize] = useState(GRID_SIZE);
   const [isGameOver, setIsGameOver] = useState(false);
-  const GRID = Array(gridSize * gridSize).fill(null);
+  const GRID = Array(GRID_SIZE * GRID_SIZE).fill(null);
   const [squares, setSquares] = useState<ISquare[]>(
     GRID.map(() => ({ colorCode: ColorCodes.Red }))
   );
@@ -37,17 +36,13 @@ export const ArraySolution = () => {
     setClicks(0);
   };
 
-  const validateNeighborsAfterBlueClicked = (
-    neighbor: Neighbors['leftNeighbor']
-  ) => {
+  const validateNeighborsAfterBlueClicked = (neighbor: Neighbor) => {
     if (neighbor !== undefined) {
       squares[neighbor].colorCode = ColorCodes.Blue;
     }
   };
 
-  const validateNeighborsAfterGreenClicked = (
-    neighbor: Neighbors['leftNeighbor']
-  ) => {
+  const validateNeighborsAfterGreenClicked = (neighbor: Neighbor) => {
     if (neighbor !== undefined) {
       if (squares[neighbor].colorCode === ColorCodes.Red) {
         squares[neighbor].colorCode = ColorCodes.Blue;
@@ -60,7 +55,7 @@ export const ArraySolution = () => {
 
   const handleClick = (squareId: number) => {
     const { leftNeighbor, rightNeighbor, topNeighbor, bottomNeighbor } =
-      getSquareNeighbors({ squareId, gridSize });
+      getSquareNeighbors({ squareId, gridSize: GRID_SIZE });
 
     setSquares(
       squares.map((square, index) => {
@@ -90,7 +85,7 @@ export const ArraySolution = () => {
     <>
       <h1>Solution using 1D Array</h1>
 
-      <Grid gridSize={gridSize}>
+      <Grid gridSize={GRID_SIZE}>
         {squares.map((square, squareId) => (
           <Square
             key={squareId}

@@ -12,11 +12,19 @@ The hash table and 1d array solutions focus on the React paradigm for state mana
 
 The document selector API solution is not necessarily a React-appropriate solution, because it directly manipulates the DOM. But I wanted to try it out as an experiment because it querying the DOM circumvents a lot of the logic that is required by manipulating application state.
 
+**Note:** I broke this project down into different directories in an effort so organize shared resources between solutions 1 and 2.
+
+My rationale was that if more than one component used a utility, type, or constant, it should be moved into the `shared` directory.
+
+One could certainly make the case that this repo may feature too much abstraction for the scope of the project, but part of the reason was to improve utilities by making them more generic and not have duplicate code across files.
+
 # How to run this project
 
-1. From the project root, run `npm install`
+1. From the project root, run `npm install`\*
 2. Once the install has completed, run `npm run dev` from the same directory to start the development server
 3. The project will open on `http://localhost:3000/` in your browser
+
+[*] In the event that `npm` is not configured on your machine, feel free to refer to the `npm` docs [setup guide](https://docs.npmjs.com/cli/v8/configuring-npm/install).
 
 # Available commands
 

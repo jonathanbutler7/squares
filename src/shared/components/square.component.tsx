@@ -1,6 +1,8 @@
-import { getBackgroundColor, IColorCode } from '..';
+import { getBackgroundColor, IColorCode,getScreenReaderColor } from '..';
 
 type SquareProps = { colorCode: IColorCode; onClick: () => void };
+
+
 
 export const Square = ({ colorCode, onClick }: SquareProps) => (
   <button
@@ -10,6 +12,7 @@ export const Square = ({ colorCode, onClick }: SquareProps) => (
       border: '1px solid black',
       width: '100%',
     }}
+    aria-label={`Square color: ${getScreenReaderColor(colorCode)}`}
     className='square'
     onClick={onClick}
   ></button>
