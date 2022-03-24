@@ -38,13 +38,17 @@ export const ArraySolution = () => {
     setClicks(0);
   };
 
-  const validateBlueClicked = (neighbor: Neighbors['leftNeighbor']) => {
+  const validateNeighborsAfterBlueClicked = (
+    neighbor: Neighbors['leftNeighbor']
+  ) => {
     if (neighbor !== undefined) {
       squares[neighbor].colorCode = ColorCodes.Blue;
     }
   };
 
-  const validateGreenClicked = (neighbor: Neighbors['leftNeighbor']) => {
+  const validateNeighborsAfterGreenClicked = (
+    neighbor: Neighbors['leftNeighbor']
+  ) => {
     if (neighbor !== undefined) {
       if (squares[neighbor].colorCode === ColorCodes.Red) {
         squares[neighbor].colorCode = ColorCodes.Blue;
@@ -55,41 +59,24 @@ export const ArraySolution = () => {
     }
   };
 
-  const handleBlueClick = ({
-    leftNeighbor,
-    rightNeighbor,
-    topNeighbor,
-    bottomNeighbor,
-  }: Neighbors) => {
-    validateBlueClicked(leftNeighbor);
-    validateBlueClicked(rightNeighbor);
-    validateBlueClicked(bottomNeighbor);
-    validateBlueClicked(topNeighbor);
-  };
-
-  const handleGreenClick = ({
-    leftNeighbor,
-    rightNeighbor,
-    topNeighbor,
-    bottomNeighbor,
-  }: Neighbors) => {
-    validateGreenClicked(leftNeighbor);
-    validateGreenClicked(rightNeighbor);
-    validateGreenClicked(bottomNeighbor);
-    validateGreenClicked(topNeighbor);
-  };
-
   const handleClick = (squareId: number) => {
-    const neighbors = getSquareNeighbors({ squareId, gridSize });
+    const { leftNeighbor, rightNeighbor, topNeighbor, bottomNeighbor } =
+      getSquareNeighbors({ squareId, gridSize });
 
     setSquares(
       squares.map((square, index) => {
         if (index === squareId) {
           if (square.colorCode === ColorCodes.Blue) {
-            handleBlueClick(neighbors);
+            validateNeighborsAfterBlueClicked(leftNeighbor);
+            validateNeighborsAfterBlueClicked(rightNeighbor);
+            validateNeighborsAfterBlueClicked(bottomNeighbor);
+            validateNeighborsAfterBlueClicked(topNeighbor);
           }
           if (square.colorCode === ColorCodes.Green) {
-            handleGreenClick(neighbors);
+            validateNeighborsAfterGreenClicked(leftNeighbor);
+            validateNeighborsAfterGreenClicked(rightNeighbor);
+            validateNeighborsAfterGreenClicked(bottomNeighbor);
+            validateNeighborsAfterGreenClicked(topNeighbor);
           }
           // this line advances the color of the clicked square
           return { colorCode: getNextColorCode(square.colorCode) };

@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import {
   ColorCodes,
   getSquareNeighbors,
-  Neighbors,
   getNextColorCode,
   ISquare,
   GameStatus,
@@ -58,42 +57,9 @@ export const HashTableSolution = () => {
     }),
   });
 
-  const handleBlueClick = ({
-    squareId,
-    leftNeighbor,
-    rightNeighbor,
-    topNeighbor,
-    bottomNeighbor,
-  }: Neighbors & { squareId: number }) => ({
-    ...squares,
-    [squareId]: {
-      colorCode: ColorCodes.Green,
-    },
-    ...validateNeighborsAfterBlueClicked(leftNeighbor),
-    ...validateNeighborsAfterBlueClicked(rightNeighbor),
-    ...validateNeighborsAfterBlueClicked(topNeighbor),
-    ...validateNeighborsAfterBlueClicked(bottomNeighbor),
-  });
-
-  const handleGreenClick = ({
-    squareId,
-    leftNeighbor,
-    rightNeighbor,
-    topNeighbor,
-    bottomNeighbor,
-  }: Neighbors & { squareId: number }) => ({
-    ...squares,
-    [squareId]: {
-      colorCode: getNextColorCode(squares[squareId].colorCode),
-    },
-    ...validateNeighborsAfterGreenClicked(leftNeighbor),
-    ...validateNeighborsAfterGreenClicked(rightNeighbor),
-    ...validateNeighborsAfterGreenClicked(topNeighbor),
-    ...validateNeighborsAfterGreenClicked(bottomNeighbor),
-  });
-
   const handleClick = (squareId: number) => {
-    const neighbors = getSquareNeighbors({ squareId, gridSize });
+    const { leftNeighbor, rightNeighbor, topNeighbor, bottomNeighbor } =
+      getSquareNeighbors({ squareId, gridSize });
 
     setSquares((squares) => {
       if (squares[squareId].colorCode === ColorCodes.Red) {
@@ -105,16 +71,28 @@ export const HashTableSolution = () => {
         };
       }
       if (squares[squareId].colorCode === ColorCodes.Blue) {
-        return handleBlueClick({
-          squareId,
-          ...neighbors,
-        });
+        return {
+          ...squares,
+          [squareId]: {
+            colorCode: ColorCodes.Green,
+          },
+          ...validateNeighborsAfterBlueClicked(topNeighbor),
+          ...validateNeighborsAfterBlueClicked(bottomNeighbor),
+          ...validateNeighborsAfterBlueClicked(leftNeighbor),
+          ...validateNeighborsAfterBlueClicked(rightNeighbor),
+        };
       }
       if (squares[squareId].colorCode === ColorCodes.Green) {
-        return handleGreenClick({
-          squareId,
-          ...neighbors,
-        });
+        return {
+          ...squares,
+          [squareId]: {
+            colorCode: getNextColorCode(squares[squareId].colorCode),
+          },
+          ...validateNeighborsAfterGreenClicked(topNeighbor),
+          ...validateNeighborsAfterGreenClicked(bottomNeighbor),
+          ...validateNeighborsAfterGreenClicked(leftNeighbor),
+          ...validateNeighborsAfterGreenClicked(rightNeighbor),
+        };
       } else {
         return squares;
       }
