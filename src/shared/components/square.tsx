@@ -1,6 +1,6 @@
-import { ColorCodes } from '../shared';
+import { ColorCodes } from '../constants';
 
-type SquareProps = { colorCode: 0 | 1 | 2; onClick: () => void };
+type SquareProps = { colorCode: 0 | 1 | 2 | undefined; onClick: () => void };
 
 const getBackgroundColor = (colorCode: SquareProps['colorCode']) => {
   switch (colorCode) {
