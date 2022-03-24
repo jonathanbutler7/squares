@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Square } from '../shared/components/square.component';
+import { Square } from '../../shared/components/square.component';
 import {
   getSquareNeighbors,
   ColorCodes,
@@ -8,7 +8,7 @@ import {
   GameStatus,
   Grid,
   IColorCode,
-} from '../shared';
+} from '../../shared';
 
 type ISquare = { colorCode: IColorCode };
 

@@ -8,7 +8,7 @@ import {
   GameStatus,
   Grid,
   Square,
-} from '../shared';
+} from '../../shared';
 
 const GRID_SIZE = 4;
 

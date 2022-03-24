@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ColorRGBValues, GameStatus } from '../shared';
+import { ColorRGBValues, GameStatus } from '../../shared';
 
 type Coordinates = { x: number; y: number };
 
