@@ -6,9 +6,9 @@
 }
 
 .grid {
-  display: inline-flex;
+  border: 5px solid black;
+  display: grid;
   flex-direction: column;
-  border: 2px solid black;
 }
 
 .row {

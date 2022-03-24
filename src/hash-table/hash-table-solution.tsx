@@ -5,9 +5,11 @@ import {
   Neighbors,
   getNextColorCode,
   ISquare,
+  GameStatus,
+  Grid,
+  SelectGridSize,
+  Square,
 } from '../shared';
-import { GameStatus } from '../shared/components/game-status';
-import { Square } from '../shared/components/square';
 
 const GRID_SIZE = 4;
 
@@ -31,6 +33,7 @@ const isGridAllGreen = (squares: ISquare) =>
 export const HashTableSolution = () => {
   const [squares, setSquares] = useState(initialState);
   const [clicks, setClicks] = useState(0);
+  const [gridSize, setGridSize] = useState(GRID_SIZE);
   const [isGameOver, setIsGameOver] = useState(false);
 
   useEffect(() => {
@@ -43,16 +46,29 @@ export const HashTableSolution = () => {
     rightNeighbor,
     topNeighbor,
     bottomNeighbor,
-  }: Neighbors & { squareId: number }) => ({
-    ...squares,
-    [squareId]: {
-      colorCode: getNextColorCode(squares[squareId].colorCode),
-    },
-    [leftNeighbor]: { colorCode: ColorCodes.Blue },
-    [rightNeighbor]: { colorCode: ColorCodes.Blue },
-    [topNeighbor]: { colorCode: ColorCodes.Blue },
-    [bottomNeighbor]: { colorCode: ColorCodes.Blue },
-  });
+  }: Neighbors & { squareId: number }) => {
+    const newSquares = {
+      ...(leftNeighbor && {
+        [leftNeighbor]: { colorCode: ColorCodes.Blue },
+      }),
+      ...(rightNeighbor && {
+        [rightNeighbor]: { colorCode: ColorCodes.Blue },
+      }),
+      ...(topNeighbor && {
+        [topNeighbor]: { colorCode: ColorCodes.Blue },
+      }),
+      ...(bottomNeighbor && {
+        [bottomNeighbor]: { colorCode: ColorCodes.Blue },
+      }),
+    };
+    return {
+      ...squares,
+      [squareId]: {
+        colorCode: ColorCodes.Green,
+      },
+      ...newSquares,
+    };
+  };
 
   const handleGreenClick = ({
     squareId,
@@ -60,40 +76,52 @@ export const HashTableSolution = () => {
     rightNeighbor,
     topNeighbor,
     bottomNeighbor,
-  }: Neighbors & { squareId: number }) => ({
-    ...squares,
-    [squareId]: {
-      colorCode: getNextColorCode(squares[squareId].colorCode),
-    },
-    [leftNeighbor]: {
-      colorCode:
-        squares[leftNeighbor].colorCode === ColorCodes.Red
-          ? ColorCodes.Blue
-          : ColorCodes.Green,
-    },
-    [rightNeighbor]: {
-      colorCode:
-        squares[rightNeighbor].colorCode === ColorCodes.Red
-          ? ColorCodes.Blue
-          : ColorCodes.Green,
-    },
-    [topNeighbor]: {
-      colorCode:
-        squares[topNeighbor].colorCode === ColorCodes.Red
-          ? ColorCodes.Blue
-          : ColorCodes.Green,
-    },
-    [bottomNeighbor]: {
-      colorCode:
-        squares[squareId].colorCode === ColorCodes.Red
-          ? ColorCodes.Blue
-          : ColorCodes.Green,
-    },
-  });
+  }: Neighbors & { squareId: number }) => {
+    const newSquares = {
+      ...(leftNeighbor && {
+        [leftNeighbor]: {
+          colorCode:
+            squares[leftNeighbor].colorCode === ColorCodes.Red
+              ? ColorCodes.Blue
+              : ColorCodes.Green,
+        },
+      }),
+      ...(rightNeighbor && {
+        [rightNeighbor]: {
+          colorCode:
+            squares[rightNeighbor].colorCode === ColorCodes.Red
+              ? ColorCodes.Blue
+              : ColorCodes.Green,
+        },
+      }),
+      ...(topNeighbor && {
+        [topNeighbor]: {
+          colorCode:
+            squares[topNeighbor].colorCode === ColorCodes.Red
+              ? ColorCodes.Blue
+              : ColorCodes.Green,
+        },
+      }),
+      ...(bottomNeighbor && {
+        [bottomNeighbor]: {
+          colorCode:
+            squares[bottomNeighbor].colorCode === ColorCodes.Red
+              ? ColorCodes.Blue
+              : ColorCodes.Green,
+        },
+      }),
+    };
+    return {
+      ...squares,
+      [squareId]: {
+        colorCode: getNextColorCode(squares[squareId].colorCode),
+      },
+      ...newSquares,
+    };
+  };
 
   const handleClick = (squareId: number) => {
-    const { leftNeighbor, rightNeighbor, topNeighbor, bottomNeighbor } =
-      getSquareNeighbors({ squareId, GRID_SIZE });
+    const neighbors = getSquareNeighbors({ squareId, gridSize });
 
     setSquares((squares) => {
       if (squares[squareId].colorCode === ColorCodes.Red) {
@@ -107,19 +135,13 @@ export const HashTableSolution = () => {
       if (squares[squareId].colorCode === ColorCodes.Blue) {
         return handleBlueClick({
           squareId,
-          leftNeighbor,
-          rightNeighbor,
-          topNeighbor,
-          bottomNeighbor,
+          ...neighbors,
         });
       }
       if (squares[squareId].colorCode === ColorCodes.Green) {
         return handleGreenClick({
           squareId,
-          leftNeighbor,
-          rightNeighbor,
-          topNeighbor,
-          bottomNeighbor,
+          ...neighbors,
         });
       } else {
         return squares;
@@ -127,16 +149,21 @@ export const HashTableSolution = () => {
     });
   };
 
+  const handleReset = () => {
+    setClicks(0);
+    setSquares(initialState);
+  };
+
   return (
     <>
       <h1>Hash table solution </h1>
-      <div
-        style={{
-          border: '5px solid darkblue',
-          display: 'grid',
-          gridTemplate: `repeat(${GRID_SIZE}, 1fr) / repeat(${GRID_SIZE}, 1fr)`,
-        }}
-      >
+      <SelectGridSize
+        options={[4, 5, 6]}
+        gridSize={gridSize}
+        setGridSize={setGridSize}
+        handleReset={handleReset}
+      />
+      <Grid gridSize={GRID_SIZE}>
         {Object.values(squares).map((square, squareId) => (
           <Square
             key={squareId}
@@ -147,14 +174,11 @@ export const HashTableSolution = () => {
             }}
           />
         ))}
-      </div>
+      </Grid>
       <GameStatus
         isGameOver={isGameOver}
         clicks={clicks}
-        handleReset={() => {
-          setClicks(0);
-          setSquares(initialState);
-        }}
+        handleReset={handleReset}
       />
     </>
   );

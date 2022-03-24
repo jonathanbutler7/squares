@@ -5,8 +5,10 @@ import {
   ColorCodes,
   Neighbors,
   getNextColorCode,
+  GameStatus,
+  Grid,
+  SelectGridSize,
 } from '../shared';
-import { GameStatus } from '../shared/components/game-status';
 
 type ISquare = { colorCode: 0 | 1 | 2 | undefined };
 
@@ -15,7 +17,7 @@ const GRID_SIZE = 4;
 const isGridAllGreen = (squares: ISquare[]) =>
   squares.every((square) => square.colorCode === ColorCodes.Green);
 
-export const HooksSolution = () => {
+export const ArraySolution = () => {
   const [clicks, setClicks] = useState(0);
   const [gridSize, setGridSize] = useState(GRID_SIZE);
   const [isGameOver, setIsGameOver] = useState(false);
@@ -42,17 +44,17 @@ export const HooksSolution = () => {
     topNeighbor,
     bottomNeighbor,
   }: Neighbors) => {
-    if (leftNeighbor !== Infinity) {
-      squares[leftNeighbor].colorCode = 1;
+    if (leftNeighbor) {
+      squares[leftNeighbor].colorCode = ColorCodes.Blue;
     }
-    if (rightNeighbor !== Infinity) {
-      squares[rightNeighbor].colorCode = 1;
+    if (rightNeighbor) {
+      squares[rightNeighbor].colorCode = ColorCodes.Blue;
     }
-    if (bottomNeighbor !== Infinity) {
-      squares[bottomNeighbor].colorCode = 1;
+    if (bottomNeighbor) {
+      squares[bottomNeighbor].colorCode = ColorCodes.Blue;
     }
-    if (topNeighbor !== Infinity) {
-      squares[topNeighbor].colorCode = 1;
+    if (topNeighbor !== undefined) {
+      squares[topNeighbor].colorCode = ColorCodes.Blue;
     }
   };
 
@@ -62,7 +64,7 @@ export const HooksSolution = () => {
     topNeighbor,
     bottomNeighbor,
   }: Neighbors) => {
-    if (leftNeighbor !== Infinity) {
+    if (leftNeighbor) {
       if (squares[leftNeighbor].colorCode === ColorCodes.Red) {
         squares[leftNeighbor].colorCode = ColorCodes.Blue;
       }
@@ -70,7 +72,7 @@ export const HooksSolution = () => {
         squares[leftNeighbor].colorCode = ColorCodes.Green;
       }
     }
-    if (rightNeighbor !== Infinity) {
+    if (rightNeighbor) {
       if (squares[rightNeighbor].colorCode === ColorCodes.Blue) {
         squares[rightNeighbor].colorCode = ColorCodes.Green;
       }
@@ -78,7 +80,7 @@ export const HooksSolution = () => {
         squares[rightNeighbor].colorCode = ColorCodes.Blue;
       }
     }
-    if (bottomNeighbor !== Infinity) {
+    if (bottomNeighbor) {
       if (squares[bottomNeighbor].colorCode === ColorCodes.Blue) {
         squares[bottomNeighbor].colorCode = ColorCodes.Green;
       }
@@ -86,7 +88,7 @@ export const HooksSolution = () => {
         squares[bottomNeighbor].colorCode = ColorCodes.Blue;
       }
     }
-    if (topNeighbor !== Infinity) {
+    if (topNeighbor !== undefined) {
       if (squares[topNeighbor].colorCode === ColorCodes.Blue) {
         squares[topNeighbor].colorCode = ColorCodes.Green;
       }
@@ -97,7 +99,7 @@ export const HooksSolution = () => {
   };
 
   const handleClick = (squareId: number) => {
-    const neighbors = getSquareNeighbors({ squareId, GRID_SIZE });
+    const neighbors = getSquareNeighbors({ squareId, gridSize });
 
     setSquares(
       squares.map((square, index) => {
@@ -120,25 +122,16 @@ export const HooksSolution = () => {
   return (
     <>
       <h1>Solution using hooks and Array.prototype</h1>
-      <p style={{ display: 'inline' }}>Set grid size: </p>
-      <select
-        onChange={(e) => {
-          setGridSize(+e.target.value);
+      <SelectGridSize
+        options={[4, 5, 6]}
+        gridSize={gridSize}
+        setGridSize={setGridSize}
+        handleReset={() => {
           resetClicks();
           resetColors();
         }}
-      >
-        <option value='4'>4</option>
-        <option value='5'>5</option>
-        <option value='6'>6</option>
-      </select>
-      <div
-        style={{
-          border: '5px solid darkblue',
-          display: 'grid',
-          gridTemplate: `repeat(${GRID_SIZE}, 1fr) / repeat(${GRID_SIZE}, 1fr)`,
-        }}
-      >
+      />
+      <Grid gridSize={gridSize}>
         {squares.map((square, squareId) => (
           <Square
             key={squareId}
@@ -149,7 +142,7 @@ export const HooksSolution = () => {
             }}
           />
         ))}
-      </div>
+      </Grid>
       <br />
       <GameStatus
         isGameOver={isGameOver}

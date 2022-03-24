@@ -1,19 +1,19 @@
 export const getSquareNeighbors = ({
   squareId,
-  GRID_SIZE,
+  gridSize,
 }: {
   squareId: number;
-  GRID_SIZE: number;
+  gridSize: number;
 }) => {
-  const hasLeftNeighbor = squareId % GRID_SIZE > 0;
-  const hasRightNeighbor = squareId % GRID_SIZE < GRID_SIZE - 1;
-  const hasTopNeighbor = squareId > GRID_SIZE - 1;
-  const hasBottomNeighbor = squareId < GRID_SIZE * GRID_SIZE - GRID_SIZE;
+  const hasLeftNeighbor = squareId % gridSize > 0;
+  const hasRightNeighbor = squareId % gridSize < gridSize - 1;
+  const hasTopNeighbor = squareId > gridSize - 1;
+  const hasBottomNeighbor = squareId < gridSize * gridSize - gridSize;
 
-  const topNeighbor = hasTopNeighbor ? squareId - GRID_SIZE : Infinity;
-  const bottomNeighbor = hasBottomNeighbor ? squareId + GRID_SIZE : Infinity;
-  const rightNeighbor = hasRightNeighbor ? squareId + 1 : Infinity;
-  const leftNeighbor = hasLeftNeighbor ? squareId - 1 : Infinity;
+  const topNeighbor = hasTopNeighbor ? squareId - gridSize : undefined;
+  const bottomNeighbor = hasBottomNeighbor ? squareId + gridSize : undefined;
+  const rightNeighbor = hasRightNeighbor ? squareId + 1 : undefined;
+  const leftNeighbor = hasLeftNeighbor ? squareId - 1 : undefined;
 
   return { topNeighbor, rightNeighbor, bottomNeighbor, leftNeighbor };
 };

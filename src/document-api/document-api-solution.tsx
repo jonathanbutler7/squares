@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { SelectGridSize } from '../shared';
 
 type Coordinates = { x: number; y: number };
 
@@ -87,18 +88,13 @@ export const DocumentApiSolution = () => {
   return (
     <>
       <h1>Solution using the document API</h1>
-      <p style={{ display: 'inline' }}>Set grid size: </p>
-      <select
-        onChange={(e) => {
-          setGridSize(+e.target.value);
-          handleReset();
-        }}
-      >
-        <option value='4'>4</option>
-        <option value='5'>5</option>
-        <option value='6'>6</option>
-      </select>
-      <h4>Grid size: {gridSize}</h4>
+      <SelectGridSize
+        options={[4, 5, 6]}
+        gridSize={gridSize}
+        setGridSize={setGridSize}
+        handleReset={handleReset}
+      />
+
       <div className='grid'>
         {GRID.map((rows, x) => (
           <div className='row' key={x}>
