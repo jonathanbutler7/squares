@@ -18,6 +18,10 @@ This project includes 3 different solutions to the "Goal" statement below.
 # Available commands
 
 `npm run test`
+- runs vitest test suite
+
+`npm run coverage`
+- shows converage 
 
 # Goal
 

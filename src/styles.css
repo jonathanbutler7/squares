@@ -17,8 +17,8 @@ button {
 }
 
 .cell {
-  min-height: 80px;
-  min-width: 80px;
+  min-height: 100px;
+  min-width: 100px;
   border: 1px solid black;
 }
 
@@ -36,9 +36,9 @@ button {
 
 .reset-button {
   height: 40px;
-  border: 1px solid black;
   background: #ff8fe7;
 }
+
 .reset-button:hover:not([disabled]) {
   background: white;
 }

@@ -1,6 +1,6 @@
 export const ProjectDescription = () => (
   <details>
-    <summary>Project description</summary>
+    <summary>Problem description</summary>
     <h1>Goal</h1>
     <p>
       Create a browser-based game where the user sees a 4x4 grid of red squares

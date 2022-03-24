@@ -1,35 +1,39 @@
-import { ColorRGBValues } from '../constants';
-
 type GameStatusProps = {
   isGameOver: boolean;
   clicks: number;
   handleReset: () => void;
 };
 
+const buttonStyle = (isDisabled: boolean) => ({
+  boxShadow: isDisabled ? 'none' : '2px 2px 0 0 #000',
+  transform: isDisabled ? 'none' : 'translate(-2px, -2px)',
+  border: isDisabled ? '1px solid transparent' : '1px solid black',
+  transition: 'all 250ms ease-in-out',
+  borderRadius: 4,
+});
+
 export const GameStatus = ({
   isGameOver,
   clicks,
   handleReset,
-}: GameStatusProps) => (
-  <>
-    <p>
-      <b>Clicks:</b> {clicks}
-    </p>
-    {isGameOver && <p>🎉 You won! 🎉</p>}
-    <button
-      disabled={clicks === 0}
-      onClick={handleReset}
-      className='reset-button'
-      style={{
-        boxShadow: clicks !== 0 ? '2px 2px 0 0 #000' : 'none',
-        transform: clicks !== 0 ? 'translate(-2px, -2px)' : 'none',
-        transition: 'all 250ms ease-in-out',
-        borderRadius: 4,
-      }}
-    >
-      Reset game
-    </button>
+}: GameStatusProps) => {
+  const isDisabled = clicks === 0;
+  return (
+    <>
+      <p>
+        <b>Clicks:</b> {clicks}
+      </p>
+      {isGameOver && <p>🎉 You won! 🎉</p>}
+      <button
+        disabled={isDisabled}
+        onClick={handleReset}
+        className='reset-button'
+        style={buttonStyle(isDisabled)}
+      >
+        Reset game
+      </button>
 
-    <hr />
-  </>
-);
+      <hr />
+    </>
+  );
+};

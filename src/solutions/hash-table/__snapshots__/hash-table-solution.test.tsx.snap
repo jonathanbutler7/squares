@@ -1,0 +1,941 @@
+// Vitest Snapshot v1
+
+exports[`Array solution should should render 1`] = `
+[
+  <h1>
+    Solution using hash table
+  </h1>,
+  <section
+    style={
+      {
+        "border": "1px solid gray",
+        "display": "grid",
+        "gridTemplate": "repeat(4, 1fr) / repeat(4, 1fr)",
+        "maxWidth": 400,
+      }
+    }
+  >
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+  </section>,
+  <p>
+    <b>
+      Clicks:
+    </b>
+     
+    0
+  </p>,
+  <button
+    className="reset-button"
+    disabled={true}
+    onClick={[Function]}
+    style={
+      {
+        "border": "1px solid transparent",
+        "borderRadius": 4,
+        "boxShadow": "none",
+        "transform": "none",
+        "transition": "all 250ms ease-in-out",
+      }
+    }
+  >
+    Reset game
+  </button>,
+  <hr />,
+]
+`;
+
+exports[`Array solution should should render 2`] = `
+[
+  <h1>
+    Solution using hash table
+  </h1>,
+  <section
+    style={
+      {
+        "border": "1px solid gray",
+        "display": "grid",
+        "gridTemplate": "repeat(4, 1fr) / repeat(4, 1fr)",
+        "maxWidth": 400,
+      }
+    }
+  >
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+  </section>,
+  <p>
+    <b>
+      Clicks:
+    </b>
+     
+    0
+  </p>,
+  <button
+    className="reset-button"
+    disabled={true}
+    onClick={[Function]}
+    style={
+      {
+        "border": "1px solid transparent",
+        "borderRadius": 4,
+        "boxShadow": "none",
+        "transform": "none",
+        "transition": "all 250ms ease-in-out",
+      }
+    }
+  >
+    Reset game
+  </button>,
+  <hr />,
+]
+`;
+
+exports[`Hash table solution should should render 1`] = `
+[
+  <h1>
+    Solution using hash table
+  </h1>,
+  <section
+    style={
+      {
+        "border": "1px solid gray",
+        "display": "grid",
+        "gridTemplate": "repeat(4, 1fr) / repeat(4, 1fr)",
+        "maxWidth": 400,
+      }
+    }
+  >
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+  </section>,
+  <p>
+    <b>
+      Clicks:
+    </b>
+     
+    0
+  </p>,
+  <button
+    className="reset-button"
+    disabled={true}
+    onClick={[Function]}
+    style={
+      {
+        "border": "1px solid transparent",
+        "borderRadius": 4,
+        "boxShadow": "none",
+        "transform": "none",
+        "transition": "all 250ms ease-in-out",
+      }
+    }
+  >
+    Reset game
+  </button>,
+  <hr />,
+]
+`;
+
+exports[`Hash table solution should should render 2`] = `
+[
+  <h1>
+    Solution using hash table
+  </h1>,
+  <section
+    style={
+      {
+        "border": "1px solid gray",
+        "display": "grid",
+        "gridTemplate": "repeat(4, 1fr) / repeat(4, 1fr)",
+        "maxWidth": 400,
+      }
+    }
+  >
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+    <button
+      className="square"
+      onClick={[Function]}
+      style={
+        {
+          "background": "rgb(226, 68, 47)",
+          "border": "1px solid black",
+          "height": 80,
+          "width": "100%",
+        }
+      }
+    />
+  </section>,
+  <p>
+    <b>
+      Clicks:
+    </b>
+     
+    0
+  </p>,
+  <button
+    className="reset-button"
+    disabled={true}
+    onClick={[Function]}
+    style={
+      {
+        "border": "1px solid transparent",
+        "borderRadius": 4,
+        "boxShadow": "none",
+        "transform": "none",
+        "transition": "all 250ms ease-in-out",
+      }
+    }
+  >
+    Reset game
+  </button>,
+  <hr />,
+]
+`;
