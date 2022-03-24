@@ -14,7 +14,7 @@ The document selector API solution is not necessarily a React-appropriate soluti
 
 My rationale was that if more than one component used a utility, type, or constant, it should be moved into the `shared` directory.
 
-One could certainly make the case that this repo may feature too much abstraction for the scope of the project, but part of the reason was to improve utilities by making them more generic and not have duplicate code across files.
+One could certainly make the case that this repo may feature too much abstraction for the scope of the project, but part of my reasoning was to improve utilities by making them more generic and avoid duplicate code across files.
 
 # How to run this project
 
