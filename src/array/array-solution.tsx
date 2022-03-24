@@ -121,7 +121,7 @@ export const ArraySolution = () => {
 
   return (
     <>
-      <h1>Solution using hooks and Array.prototype</h1>
+      <h1>Solution using 1D Array</h1>
       <SelectGridSize
         options={[4, 5, 6]}
         gridSize={gridSize}

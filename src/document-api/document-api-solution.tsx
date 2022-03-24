@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { SelectGridSize } from '../shared';
+import { useEffect, useState } from 'react';
+import { GameStatus, SelectGridSize } from '../shared';
 
 type Coordinates = { x: number; y: number };
 
@@ -32,17 +32,25 @@ const getNeighbors = ({
 const getElementById = (id: string) => document.getElementById(id);
 
 export const DocumentApiSolution = () => {
-  const [clicksCount, setClicksCount] = useState(0);
+  const [clicks, setClicks] = useState(0);
   const [gridSize, setGridSize] = useState(GRID_SIZE);
+  const [isGameOver, setIsGameOver] = useState(false);
+
+  useEffect(() => {
+    const cells = Array.from(document.querySelectorAll('.cell'));
+    setIsGameOver(
+      cells.every((cell) => cell.style.background === ColorNames.Green)
+    );
+  }, [clicks]);
 
   const GRID = Array(gridSize)
     .fill(null)
     .map(() => Array(gridSize).fill(null));
 
   const incrementClicksCount = () =>
-    setClicksCount((clicksCount) => clicksCount + 1);
+    setClicks((clicksCount) => clicksCount + 1);
 
-  const resetClicks = () => setClicksCount(0);
+  const resetClicks = () => setClicks(0);
 
   const handleClick = ({ x, y }: Coordinates) => {
     const neighbors = getNeighbors({ x, y, gridSize });
@@ -65,14 +73,13 @@ export const DocumentApiSolution = () => {
     }
     if (prevBackground === ColorNames.Green) {
       neighbors.forEach((cellId) => {
-        if (cellId) {
-          const cell = document.getElementById(cellId) as HTMLDivElement;
-          const prevBackground = cell?.style.background;
-          if (prevBackground === ColorNames.Red) {
-            cell.style.background = ColorNames.Blue;
-          } else {
-            cell.style.background = ColorNames.Green;
-          }
+        if (!cellId) return;
+        const cell = document.getElementById(cellId) as HTMLDivElement;
+        const prevBackground = cell?.style.background;
+        if (prevBackground === ColorNames.Red) {
+          cell.style.background = ColorNames.Blue;
+        } else {
+          cell.style.background = ColorNames.Green;
         }
       });
     }
@@ -87,7 +94,7 @@ export const DocumentApiSolution = () => {
 
   return (
     <>
-      <h1>Solution using the document API</h1>
+      <h1>Solution using 2D Array and document API</h1>
       <SelectGridSize
         options={[4, 5, 6]}
         gridSize={gridSize}
@@ -113,14 +120,12 @@ export const DocumentApiSolution = () => {
           </div>
         ))}
       </div>
-      <br />
-      <br />
-      <p>
-        <b>Clicks:</b> {clicksCount}
-      </p>
-      <button disabled={clicksCount === 0} onClick={handleReset}>
-        Reset game
-      </button>
+
+      <GameStatus
+        isGameOver={isGameOver}
+        clicks={clicks}
+        handleReset={handleReset}
+      />
     </>
   );
 };

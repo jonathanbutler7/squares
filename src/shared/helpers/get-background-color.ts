@@ -7,7 +7,7 @@ export const getBackgroundColor = (colorCode: any) => {
     case ColorCodes.Blue:
       return '#90A8ED';
     case ColorCodes.Green:
-      return '#21a094';
+      return '#90A8ED';
     default:
       return;
   }
