@@ -16,7 +16,7 @@ exports[`Array solution should should render 1`] = `
     }
   >
     <button
-      aria-label="Square color: red"
+      aria-label="red square"
       className="square"
       onClick={[Function]}
       style={
@@ -29,7 +29,7 @@ exports[`Array solution should should render 1`] = `
       }
     />
     <button
-      aria-label="Square color: red"
+      aria-label="red square"
       className="square"
       onClick={[Function]}
       style={
@@ -42,7 +42,7 @@ exports[`Array solution should should render 1`] = `
       }
     />
     <button
-      aria-label="Square color: red"
+      aria-label="red square"
       className="square"
       onClick={[Function]}
       style={
@@ -55,7 +55,7 @@ exports[`Array solution should should render 1`] = `
       }
     />
     <button
-      aria-label="Square color: red"
+      aria-label="red square"
       className="square"
       onClick={[Function]}
       style={
@@ -68,7 +68,7 @@ exports[`Array solution should should render 1`] = `
       }
     />
     <button
-      aria-label="Square color: red"
+      aria-label="red square"
       className="square"
       onClick={[Function]}
       style={
@@ -81,7 +81,7 @@ exports[`Array solution should should render 1`] = `
       }
     />
     <button
-      aria-label="Square color: red"
+      aria-label="red square"
       className="square"
       onClick={[Function]}
       style={
@@ -94,7 +94,7 @@ exports[`Array solution should should render 1`] = `
       }
     />
     <button
-      aria-label="Square color: red"
+      aria-label="red square"
       className="square"
       onClick={[Function]}
       style={
@@ -107,7 +107,7 @@ exports[`Array solution should should render 1`] = `
       }
     />
     <button
-      aria-label="Square color: red"
+      aria-label="red square"
       className="square"
       onClick={[Function]}
       style={
@@ -120,7 +120,7 @@ exports[`Array solution should should render 1`] = `
       }
     />
     <button
-      aria-label="Square color: red"
+      aria-label="red square"
       className="square"
       onClick={[Function]}
       style={
@@ -133,7 +133,7 @@ exports[`Array solution should should render 1`] = `
       }
     />
     <button
-      aria-label="Square color: red"
+      aria-label="red square"
       className="square"
       onClick={[Function]}
       style={
@@ -146,7 +146,7 @@ exports[`Array solution should should render 1`] = `
       }
     />
     <button
-      aria-label="Square color: red"
+      aria-label="red square"
       className="square"
       onClick={[Function]}
       style={
@@ -159,7 +159,7 @@ exports[`Array solution should should render 1`] = `
       }
     />
     <button
-      aria-label="Square color: red"
+      aria-label="red square"
       className="square"
       onClick={[Function]}
       style={
@@ -172,7 +172,7 @@ exports[`Array solution should should render 1`] = `
       }
     />
     <button
-      aria-label="Square color: red"
+      aria-label="red square"
       className="square"
       onClick={[Function]}
       style={
@@ -185,7 +185,7 @@ exports[`Array solution should should render 1`] = `
       }
     />
     <button
-      aria-label="Square color: red"
+      aria-label="red square"
       className="square"
       onClick={[Function]}
       style={
@@ -198,7 +198,7 @@ exports[`Array solution should should render 1`] = `
       }
     />
     <button
-      aria-label="Square color: red"
+      aria-label="red square"
       className="square"
       onClick={[Function]}
       style={
@@ -211,7 +211,7 @@ exports[`Array solution should should render 1`] = `
       }
     />
     <button
-      aria-label="Square color: red"
+      aria-label="red square"
       className="square"
       onClick={[Function]}
       style={
@@ -237,9 +237,11 @@ exports[`Array solution should should render 1`] = `
     onClick={[Function]}
     style={
       {
+        "background": "#ff8fe7",
         "border": "1px solid transparent",
         "borderRadius": 4,
         "boxShadow": "none",
+        "height": 40,
         "transform": "none",
         "transition": "all 250ms ease-in-out",
       }
@@ -267,7 +269,7 @@ exports[`Array solution should should render 2`] = `
     }
   >
     <button
-      aria-label="Square color: red"
+      aria-label="red square"
       className="square"
       onClick={[Function]}
       style={
@@ -280,7 +282,7 @@ exports[`Array solution should should render 2`] = `
       }
     />
     <button
-      aria-label="Square color: red"
+      aria-label="red square"
       className="square"
       onClick={[Function]}
       style={
@@ -293,7 +295,7 @@ exports[`Array solution should should render 2`] = `
       }
     />
     <button
-      aria-label="Square color: red"
+      aria-label="red square"
       className="square"
       onClick={[Function]}
       style={
@@ -306,7 +308,7 @@ exports[`Array solution should should render 2`] = `
       }
     />
     <button
-      aria-label="Square color: red"
+      aria-label="red square"
       className="square"
       onClick={[Function]}
       style={
@@ -319,7 +321,7 @@ exports[`Array solution should should render 2`] = `
       }
     />
     <button
-      aria-label="Square color: red"
+      aria-label="red square"
       className="square"
       onClick={[Function]}
       style={
@@ -332,7 +334,7 @@ exports[`Array solution should should render 2`] = `
       }
     />
     <button
-      aria-label="Square color: red"
+      aria-label="red square"
       className="square"
       onClick={[Function]}
       style={
@@ -345,7 +347,7 @@ exports[`Array solution should should render 2`] = `
       }
     />
     <button
-      aria-label="Square color: red"
+      aria-label="red square"
       className="square"
       onClick={[Function]}
       style={
@@ -358,7 +360,7 @@ exports[`Array solution should should render 2`] = `
       }
     />
     <button
-      aria-label="Square color: red"
+      aria-label="red square"
       className="square"
       onClick={[Function]}
       style={
@@ -371,7 +373,7 @@ exports[`Array solution should should render 2`] = `
       }
     />
     <button
-      aria-label="Square color: red"
+      aria-label="red square"
       className="square"
       onClick={[Function]}
       style={
@@ -384,7 +386,7 @@ exports[`Array solution should should render 2`] = `
       }
     />
     <button
-      aria-label="Square color: red"
+      aria-label="red square"
       className="square"
       onClick={[Function]}
       style={
@@ -397,7 +399,7 @@ exports[`Array solution should should render 2`] = `
       }
     />
     <button
-      aria-label="Square color: red"
+      aria-label="red square"
       className="square"
       onClick={[Function]}
       style={
@@ -410,7 +412,7 @@ exports[`Array solution should should render 2`] = `
       }
     />
     <button
-      aria-label="Square color: red"
+      aria-label="red square"
       className="square"
       onClick={[Function]}
       style={
@@ -423,7 +425,7 @@ exports[`Array solution should should render 2`] = `
       }
     />
     <button
-      aria-label="Square color: red"
+      aria-label="red square"
       className="square"
       onClick={[Function]}
       style={
@@ -436,7 +438,7 @@ exports[`Array solution should should render 2`] = `
       }
     />
     <button
-      aria-label="Square color: red"
+      aria-label="red square"
       className="square"
       onClick={[Function]}
       style={
@@ -449,7 +451,7 @@ exports[`Array solution should should render 2`] = `
       }
     />
     <button
-      aria-label="Square color: red"
+      aria-label="red square"
       className="square"
       onClick={[Function]}
       style={
@@ -462,7 +464,7 @@ exports[`Array solution should should render 2`] = `
       }
     />
     <button
-      aria-label="Square color: red"
+      aria-label="red square"
       className="square"
       onClick={[Function]}
       style={
@@ -488,9 +490,11 @@ exports[`Array solution should should render 2`] = `
     onClick={[Function]}
     style={
       {
+        "background": "#ff8fe7",
         "border": "1px solid transparent",
         "borderRadius": 4,
         "boxShadow": "none",
+        "height": 40,
         "transform": "none",
         "transition": "all 250ms ease-in-out",
       }

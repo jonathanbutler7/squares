@@ -1,7 +1,5 @@
 # What is this project?
 
-I created this repo as part of the interview process for Ripple.
-
 This project includes 3 different solutions to the "Project description" statement below.
 
 1. Hash table
