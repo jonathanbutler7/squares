@@ -7,11 +7,10 @@ import {
   GameStatus,
   Grid,
   Square,
+  GRID_SIZE,
 } from '../../shared';
 
-const GRID_SIZE = 4;
-
-const getGrid = (gridSize: number) => {
+const assembleGrid = (gridSize: number) => {
   let gridValues: ISquare = {};
 
   for (let i = 0; i < gridSize * gridSize; i++) {
@@ -21,7 +20,7 @@ const getGrid = (gridSize: number) => {
   return gridValues;
 };
 
-const initialState = getGrid(GRID_SIZE);
+const initialState = assembleGrid(GRID_SIZE);
 
 const isGridAllGreen = (squares: ISquare) =>
   Object.values(squares).every(
@@ -120,7 +119,7 @@ export const HashTableSolution = () => {
           />
         ))}
       </Grid>
-      
+
       <GameStatus
         isGameOver={isGameOver}
         clicks={clicks}

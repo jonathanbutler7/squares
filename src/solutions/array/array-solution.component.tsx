@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-
 import {
   Square,
   getSquareNeighbors,
@@ -9,11 +8,10 @@ import {
   GameStatus,
   Grid,
   IColorCode,
+  GRID_SIZE,
 } from '../../shared';
 
 type ISquare = { colorCode: IColorCode };
-
-const GRID_SIZE = 4;
 
 const isGridAllGreen = (squares: ISquare[]) =>
   squares.every((square) => square.colorCode === ColorCodes.Green);

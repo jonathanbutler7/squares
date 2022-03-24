@@ -1,18 +1,7 @@
-// @ts-nocheck
-import { useEffect, useState } from 'react';
-import { ColorRGBValues, GameStatus } from '../../shared';
+import React, { useEffect, useState } from 'react';
+import { ColorRGBValues, GameStatus, GRID_SIZE } from '../../shared';
 
 type Coordinates = { x: number; y: number };
-
-enum ColorNames {
-  Red = ColorRGBValues.Red,
-  Blue = ColorRGBValues.Blue,
-  Green = ColorRGBValues.Green,
-}
-
-const GRID_SIZE = 4;
-
-type ColorUnion = `${ColorRGBValues}`;
 
 const getNeighbors = ({
   x,
@@ -41,7 +30,7 @@ export const DocumentApiSolution = () => {
   useEffect(() => {
     const cells = Array.from(document.querySelectorAll('.cell'));
     setIsGameOver(
-      cells.every((cell) => cell.style.background === ColorNames.Green)
+      cells.every((cell: any) => cell.style.background === ColorRGBValues.Green)
     );
   }, [clicks]);
 
@@ -60,39 +49,38 @@ export const DocumentApiSolution = () => {
     const clickedCell = getElementById(
       x.toString() + y.toString()
     ) as HTMLElement;
-    const prevBackground: ColorUnion = clickedCell?.style
-      .background as ColorUnion;
+    const prevBackground = clickedCell?.style.background;
 
-    if (prevBackground === ColorNames.Red) {
-      clickedCell.style.background = ColorNames.Blue;
+    if (prevBackground === ColorRGBValues.Red) {
+      clickedCell.style.background = ColorRGBValues.Blue;
     }
 
-    if (prevBackground === ColorNames.Blue) {
-      clickedCell.style.background = ColorNames.Green;
+    if (prevBackground === ColorRGBValues.Blue) {
+      clickedCell.style.background = ColorRGBValues.Green;
       neighbors.forEach((cellId) => {
         if (!cellId) return;
         const cell = document.getElementById(cellId) as HTMLDivElement;
-        cell.style.background = ColorNames.Blue;
+        cell.style.background = ColorRGBValues.Blue;
       });
     }
 
-    if (prevBackground === ColorNames.Green) {
+    if (prevBackground === ColorRGBValues.Green) {
       neighbors.forEach((cellId) => {
         if (!cellId) return;
         const cell = document.getElementById(cellId) as HTMLDivElement;
         const prevBackground = cell?.style.background;
-        if (prevBackground === ColorNames.Red) {
-          cell.style.background = ColorNames.Blue;
+        if (prevBackground === ColorRGBValues.Red) {
+          cell.style.background = ColorRGBValues.Blue;
         } else {
-          cell.style.background = ColorNames.Green;
+          cell.style.background = ColorRGBValues.Green;
         }
       });
     }
   };
 
   const handleReset = () => {
-    Array.from(document.querySelectorAll('.cell')).forEach((cell) => {
-      cell.style.background = ColorNames.Red;
+    Array.from(document.querySelectorAll('.cell')).forEach((cell: any) => {
+      cell.style.background = ColorRGBValues.Red;
     });
     resetClicks();
   };
@@ -112,7 +100,7 @@ export const DocumentApiSolution = () => {
                   handleClick({ x, y });
                   incrementClicksCount();
                 }}
-                style={{ background: ColorNames.Red }}
+                style={{ background: ColorRGBValues.Red }}
               />
             ))}
           </div>
