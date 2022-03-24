@@ -18,6 +18,7 @@ export const GameStatus = ({
   handleReset,
 }: GameStatusProps) => {
   const isDisabled = clicks === 0;
+  
   return (
     <>
       <p>
