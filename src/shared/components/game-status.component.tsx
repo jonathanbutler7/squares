@@ -10,6 +10,8 @@ const buttonStyle = (isDisabled: boolean) => ({
   border: isDisabled ? '1px solid transparent' : '1px solid black',
   transition: 'all 250ms ease-in-out',
   borderRadius: 4,
+  height: 40,
+  background: '#ff8fe7',
 });
 
 export const GameStatus = ({
@@ -18,7 +20,7 @@ export const GameStatus = ({
   handleReset,
 }: GameStatusProps) => {
   const isDisabled = clicks === 0;
-  
+
   return (
     <>
       <p>
@@ -28,8 +30,8 @@ export const GameStatus = ({
       <button
         disabled={isDisabled}
         onClick={handleReset}
-        className='reset-button'
         style={buttonStyle(isDisabled)}
+        className='reset-button'
       >
         Reset game
       </button>

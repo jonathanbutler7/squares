@@ -1,11 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
-body,
-button {
-  font-family: 'Open Sans', sans-serif;
-}
 
-.grid {
-  
+* {
+  font-family: 'Open Sans', sans-serif;
 }
 
 .square:hover,
@@ -20,12 +16,8 @@ button {
   outline: none;
 }
 
-.reset-button {
-  height: 40px;
-  background: #ff8fe7;
-}
-
 .reset-button:hover:not([disabled]) {
+  cursor: pointer;
   background: white;
 }
 
