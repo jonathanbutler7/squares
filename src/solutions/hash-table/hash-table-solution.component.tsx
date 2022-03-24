@@ -61,7 +61,7 @@ export const HashTableSolution = () => {
   const handleClick = (squareId: number) => {
     const { leftNeighbor, rightNeighbor, topNeighbor, bottomNeighbor } =
       getSquareNeighbors({ squareId, gridSize: GRID_SIZE });
-
+    console.log(getSquareNeighbors({ squareId: 0, gridSize: 7 }))
     setSquares((squares) => {
       if (squares[squareId].colorCode === ColorCodes.Red) {
         return {
