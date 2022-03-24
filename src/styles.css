@@ -1,0 +1,26 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.grid {
+  display: inline-flex;
+  flex-direction: column;
+  border: 2px solid black;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  border: none;
+}
+
+.cell {
+  border: 2px solid black;
+  height: 40px;
+  width: 40px;
+}
+
+.cell:focus {
+  outline: 4px solid pink;
+}
