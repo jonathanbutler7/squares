@@ -8,7 +8,7 @@ This project includes 3 different solutions to the "Project description" stateme
 
 The hash table and 1d array solutions focus on the React paradigm for state management, namely the `useState` hook.
 
-The document selector API solution is not necessarily a React-appropriate solution, because it directly manipulates the DOM. But I wanted to try it out as an experiment because it querying the DOM circumvents a lot of the logic that is required by manipulating application state.
+The document selector API solution is not necessarily a React-appropriate solution, because it directly manipulates the DOM. But I wanted to try it out as an experiment because querying the DOM circumvents a lot of the logic that is required by manipulating application state.
 
 **Note:** I broke this project down into different directories in an effort so organize shared resources between solutions 1 and 2.
 
