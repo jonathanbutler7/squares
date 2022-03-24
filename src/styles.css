@@ -17,8 +17,8 @@
 }
 
 .cell {
-  min-height: 40px;
-  min-width: 100px;
+  min-height: 80px;
+  min-width: 80px;
   border: 1px solid black;
 }
 

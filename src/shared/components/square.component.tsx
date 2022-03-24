@@ -6,8 +6,9 @@ export const Square = ({ colorCode, onClick }: SquareProps) => (
   <button
     style={{
       background: getBackgroundColor(colorCode),
-      height: 40,
+      height: 80,
       border: '1px solid black',
+      width: '100%',
     }}
     className='square'
     onClick={onClick}

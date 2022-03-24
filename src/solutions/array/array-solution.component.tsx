@@ -38,24 +38,33 @@ export const ArraySolution = () => {
     setClicks(0);
   };
 
+  const validateBlueClicked = (neighbor: Neighbors['leftNeighbor']) => {
+    if (neighbor !== undefined) {
+      squares[neighbor].colorCode = ColorCodes.Blue;
+    }
+  };
+
+  const validateGreenClicked = (neighbor: Neighbors['leftNeighbor']) => {
+    if (neighbor !== undefined) {
+      if (squares[neighbor].colorCode === ColorCodes.Red) {
+        squares[neighbor].colorCode = ColorCodes.Blue;
+      }
+      if (squares[neighbor].colorCode === ColorCodes.Blue) {
+        squares[neighbor].colorCode = ColorCodes.Green;
+      }
+    }
+  };
+
   const handleBlueClick = ({
     leftNeighbor,
     rightNeighbor,
     topNeighbor,
     bottomNeighbor,
   }: Neighbors) => {
-    if (leftNeighbor) {
-      squares[leftNeighbor].colorCode = ColorCodes.Blue;
-    }
-    if (rightNeighbor) {
-      squares[rightNeighbor].colorCode = ColorCodes.Blue;
-    }
-    if (bottomNeighbor) {
-      squares[bottomNeighbor].colorCode = ColorCodes.Blue;
-    }
-    if (topNeighbor !== undefined) {
-      squares[topNeighbor].colorCode = ColorCodes.Blue;
-    }
+    validateBlueClicked(leftNeighbor);
+    validateBlueClicked(rightNeighbor);
+    validateBlueClicked(bottomNeighbor);
+    validateBlueClicked(topNeighbor);
   };
 
   const handleGreenClick = ({
@@ -64,38 +73,10 @@ export const ArraySolution = () => {
     topNeighbor,
     bottomNeighbor,
   }: Neighbors) => {
-    if (leftNeighbor) {
-      if (squares[leftNeighbor].colorCode === ColorCodes.Red) {
-        squares[leftNeighbor].colorCode = ColorCodes.Blue;
-      }
-      if (squares[leftNeighbor].colorCode === ColorCodes.Blue) {
-        squares[leftNeighbor].colorCode = ColorCodes.Green;
-      }
-    }
-    if (rightNeighbor) {
-      if (squares[rightNeighbor].colorCode === ColorCodes.Blue) {
-        squares[rightNeighbor].colorCode = ColorCodes.Green;
-      }
-      if (squares[rightNeighbor].colorCode === ColorCodes.Red) {
-        squares[rightNeighbor].colorCode = ColorCodes.Blue;
-      }
-    }
-    if (bottomNeighbor) {
-      if (squares[bottomNeighbor].colorCode === ColorCodes.Blue) {
-        squares[bottomNeighbor].colorCode = ColorCodes.Green;
-      }
-      if (squares[bottomNeighbor].colorCode === ColorCodes.Red) {
-        squares[bottomNeighbor].colorCode = ColorCodes.Blue;
-      }
-    }
-    if (topNeighbor !== undefined) {
-      if (squares[topNeighbor].colorCode === ColorCodes.Blue) {
-        squares[topNeighbor].colorCode = ColorCodes.Green;
-      }
-      if (squares[topNeighbor].colorCode === ColorCodes.Red) {
-        squares[topNeighbor].colorCode = ColorCodes.Blue;
-      }
-    }
+    validateGreenClicked(leftNeighbor);
+    validateGreenClicked(rightNeighbor);
+    validateGreenClicked(bottomNeighbor);
+    validateGreenClicked(topNeighbor);
   };
 
   const handleClick = (squareId: number) => {
