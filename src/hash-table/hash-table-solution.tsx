@@ -7,7 +7,6 @@ import {
   ISquare,
   GameStatus,
   Grid,
-  SelectGridSize,
   Square,
 } from '../shared';
 
@@ -47,6 +46,7 @@ export const HashTableSolution = () => {
     topNeighbor,
     bottomNeighbor,
   }: Neighbors & { squareId: number }) => {
+    console.log(bottomNeighbor);
     const newSquares = {
       ...(leftNeighbor && {
         [leftNeighbor]: { colorCode: ColorCodes.Blue },
@@ -54,7 +54,7 @@ export const HashTableSolution = () => {
       ...(rightNeighbor && {
         [rightNeighbor]: { colorCode: ColorCodes.Blue },
       }),
-      ...(topNeighbor && {
+      ...(topNeighbor !== undefined && {
         [topNeighbor]: { colorCode: ColorCodes.Blue },
       }),
       ...(bottomNeighbor && {
@@ -69,6 +69,16 @@ export const HashTableSolution = () => {
       ...newSquares,
     };
   };
+  const getNextValue = (neighbor: number | undefined) => ({
+    ...(neighbor !== undefined && {
+      [neighbor]: {
+        colorCode:
+          squares[neighbor].colorCode === ColorCodes.Red
+            ? ColorCodes.Blue
+            : ColorCodes.Green,
+      },
+    }),
+  });
 
   const handleGreenClick = ({
     squareId,
@@ -77,46 +87,15 @@ export const HashTableSolution = () => {
     topNeighbor,
     bottomNeighbor,
   }: Neighbors & { squareId: number }) => {
-    const newSquares = {
-      ...(leftNeighbor && {
-        [leftNeighbor]: {
-          colorCode:
-            squares[leftNeighbor].colorCode === ColorCodes.Red
-              ? ColorCodes.Blue
-              : ColorCodes.Green,
-        },
-      }),
-      ...(rightNeighbor && {
-        [rightNeighbor]: {
-          colorCode:
-            squares[rightNeighbor].colorCode === ColorCodes.Red
-              ? ColorCodes.Blue
-              : ColorCodes.Green,
-        },
-      }),
-      ...(topNeighbor && {
-        [topNeighbor]: {
-          colorCode:
-            squares[topNeighbor].colorCode === ColorCodes.Red
-              ? ColorCodes.Blue
-              : ColorCodes.Green,
-        },
-      }),
-      ...(bottomNeighbor && {
-        [bottomNeighbor]: {
-          colorCode:
-            squares[bottomNeighbor].colorCode === ColorCodes.Red
-              ? ColorCodes.Blue
-              : ColorCodes.Green,
-        },
-      }),
-    };
     return {
       ...squares,
       [squareId]: {
         colorCode: getNextColorCode(squares[squareId].colorCode),
       },
-      ...newSquares,
+      ...getNextValue(leftNeighbor),
+      ...getNextValue(rightNeighbor),
+      ...getNextValue(topNeighbor),
+      ...getNextValue(bottomNeighbor),
     };
   };
 
@@ -156,13 +135,7 @@ export const HashTableSolution = () => {
 
   return (
     <>
-      <h1>Hash table solution </h1>
-      <SelectGridSize
-        options={[4, 5, 6]}
-        gridSize={gridSize}
-        setGridSize={setGridSize}
-        handleReset={handleReset}
-      />
+      <h1>Solution using hash table</h1>
       <Grid gridSize={GRID_SIZE}>
         {Object.values(squares).map((square, squareId) => (
           <Square

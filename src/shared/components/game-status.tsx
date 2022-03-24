@@ -17,5 +17,6 @@ export const GameStatus = ({
     <button disabled={clicks === 0} onClick={handleReset}>
       Reset game
     </button>
+    <hr />
   </>
 );

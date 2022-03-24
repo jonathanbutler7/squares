@@ -1,15 +1,17 @@
 import { useEffect, useState } from 'react';
-import { GameStatus, SelectGridSize } from '../shared';
+import { ColorRGBValues, GameStatus } from '../shared';
 
 type Coordinates = { x: number; y: number };
 
 enum ColorNames {
-  Red = 'red',
-  Blue = 'blue',
-  Green = 'green',
+  Red = ColorRGBValues.Red,
+  Blue = ColorRGBValues.Blue,
+  Green = ColorRGBValues.Green,
 }
 
 const GRID_SIZE = 4;
+
+type ColorUnion = `${ColorRGBValues}`;
 
 const getNeighbors = ({
   x,
@@ -33,7 +35,6 @@ const getElementById = (id: string) => document.getElementById(id);
 
 export const DocumentApiSolution = () => {
   const [clicks, setClicks] = useState(0);
-  const [gridSize, setGridSize] = useState(GRID_SIZE);
   const [isGameOver, setIsGameOver] = useState(false);
 
   useEffect(() => {
@@ -43,9 +44,9 @@ export const DocumentApiSolution = () => {
     );
   }, [clicks]);
 
-  const GRID = Array(gridSize)
+  const GRID = Array(GRID_SIZE)
     .fill(null)
-    .map(() => Array(gridSize).fill(null));
+    .map(() => Array(GRID_SIZE).fill(null));
 
   const incrementClicksCount = () =>
     setClicks((clicksCount) => clicksCount + 1);
@@ -53,16 +54,18 @@ export const DocumentApiSolution = () => {
   const resetClicks = () => setClicks(0);
 
   const handleClick = ({ x, y }: Coordinates) => {
-    const neighbors = getNeighbors({ x, y, gridSize });
+    const neighbors = getNeighbors({ x, y, gridSize: GRID_SIZE });
 
     const clickedCell = getElementById(
       x.toString() + y.toString()
     ) as HTMLElement;
-    const prevBackground = clickedCell?.style.background;
+    const prevBackground: ColorUnion = clickedCell?.style
+      .background as ColorUnion;
 
     if (prevBackground === ColorNames.Red) {
       clickedCell.style.background = ColorNames.Blue;
     }
+
     if (prevBackground === ColorNames.Blue) {
       clickedCell.style.background = ColorNames.Green;
       neighbors.forEach((cellId) => {
@@ -71,6 +74,7 @@ export const DocumentApiSolution = () => {
         cell.style.background = ColorNames.Blue;
       });
     }
+
     if (prevBackground === ColorNames.Green) {
       neighbors.forEach((cellId) => {
         if (!cellId) return;
@@ -95,13 +99,6 @@ export const DocumentApiSolution = () => {
   return (
     <>
       <h1>Solution using 2D Array and document API</h1>
-      <SelectGridSize
-        options={[4, 5, 6]}
-        gridSize={gridSize}
-        setGridSize={setGridSize}
-        handleReset={handleReset}
-      />
-
       <div className='grid'>
         {GRID.map((rows, x) => (
           <div className='row' key={x}>

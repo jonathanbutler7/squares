@@ -2,13 +2,12 @@
 
 .App {
   font-family: 'Open Sans', sans-serif;
-  text-align: center;
 }
 
 .grid {
-  border: 5px solid black;
-  display: grid;
+  display: inline-flex;
   flex-direction: column;
+  width: 400px;
 }
 
 .row {
@@ -19,7 +18,8 @@
 
 .cell {
   min-height: 40px;
-  min-width: 40px;
+  min-width: 100px;
+  border: 1px solid black;
 }
 
 .square:hover,

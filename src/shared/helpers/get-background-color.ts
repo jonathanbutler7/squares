@@ -1,13 +1,13 @@
-import { ColorCodes } from '../constants/color-codes';
+import { ColorCodes, ColorRGBValues } from '../constants';
 
 export const getBackgroundColor = (colorCode: any) => {
   switch (colorCode) {
     case ColorCodes.Red:
-      return '#E2442F';
+      return ColorRGBValues.Red;
     case ColorCodes.Blue:
-      return '#90A8ED';
+      return ColorRGBValues.Blue;
     case ColorCodes.Green:
-      return '#90A8ED';
+      return ColorRGBValues.Green;
     default:
       return;
   }

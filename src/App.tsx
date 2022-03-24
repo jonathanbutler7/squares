@@ -7,12 +7,10 @@ import { HashTableSolution } from './hash-table/hash-table-solution';
 export function App() {
   return (
     <>
-      {/* <ProjectDescription /> */}
-      <DocumentApiSolution />
-      <hr />
+      <ProjectDescription />
       <ArraySolution />
-      <hr />
       <HashTableSolution />
+      <DocumentApiSolution />
     </>
   );
 }

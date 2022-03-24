@@ -7,7 +7,6 @@ import {
   getNextColorCode,
   GameStatus,
   Grid,
-  SelectGridSize,
 } from '../shared';
 
 type ISquare = { colorCode: 0 | 1 | 2 | undefined };
@@ -122,15 +121,6 @@ export const ArraySolution = () => {
   return (
     <>
       <h1>Solution using 1D Array</h1>
-      <SelectGridSize
-        options={[4, 5, 6]}
-        gridSize={gridSize}
-        setGridSize={setGridSize}
-        handleReset={() => {
-          resetClicks();
-          resetColors();
-        }}
-      />
       <Grid gridSize={gridSize}>
         {squares.map((square, squareId) => (
           <Square
@@ -143,7 +133,7 @@ export const ArraySolution = () => {
           />
         ))}
       </Grid>
-      <br />
+      
       <GameStatus
         isGameOver={isGameOver}
         clicks={clicks}
