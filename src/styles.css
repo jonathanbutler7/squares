@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
-
-.App {
+body,
+button {
   font-family: 'Open Sans', sans-serif;
 }
 
@@ -25,9 +25,26 @@
 .square:hover,
 .square:focus,
 .cell:focus,
-.cell:hover {
+.cell:hover,
+.reset-button:hover,
+.reset-button:focus {
   box-shadow: 2px 2px 0 0 #000;
   transform: translate(-2px, -2px);
-  transition: all 250ms ease-in-out;
+  transition: all 150ms ease-in-out;
   outline: none;
+}
+
+.reset-button {
+  height: 40px;
+  border: 1px solid black;
+  background: #ff8fe7;
+}
+.reset-button:hover:not([disabled]) {
+  background: white;
+}
+
+.square:active,
+.reset-button:active {
+  box-shadow: none;
+  transform: translate(0px, 0px);
 }

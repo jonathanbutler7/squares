@@ -38,6 +38,11 @@ export const HashTableSolution = () => {
     setIsGameOver(isGridAllGreen(squares));
   }, [squares]);
 
+  const handleReset = () => {
+    setClicks(0);
+    setSquares(initialState);
+  };
+
   const validateNeighborsAfterBlueClicked = (neighbor: number | undefined) => ({
     ...(neighbor !== undefined && {
       [neighbor]: { colorCode: ColorCodes.Blue },
@@ -99,14 +104,10 @@ export const HashTableSolution = () => {
     });
   };
 
-  const handleReset = () => {
-    setClicks(0);
-    setSquares(initialState);
-  };
-
   return (
     <>
       <h1>Solution using hash table</h1>
+
       <Grid gridSize={GRID_SIZE}>
         {Object.values(squares).map((square, squareId) => (
           <Square
@@ -119,6 +120,7 @@ export const HashTableSolution = () => {
           />
         ))}
       </Grid>
+      
       <GameStatus
         isGameOver={isGameOver}
         clicks={clicks}

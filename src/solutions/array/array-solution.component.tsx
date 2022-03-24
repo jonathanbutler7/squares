@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import { Square } from '../../shared/components/square.component';
+
 import {
+  Square,
   getSquareNeighbors,
   ColorCodes,
   Neighbors,
@@ -90,6 +91,7 @@ export const ArraySolution = () => {
   return (
     <>
       <h1>Solution using 1D Array</h1>
+
       <Grid gridSize={gridSize}>
         {squares.map((square, squareId) => (
           <Square

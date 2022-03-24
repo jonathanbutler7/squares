@@ -1,6 +1,13 @@
-import { render } from "react-dom";
+import { render } from 'react-dom';
 
-import App from "./App";
+import { App } from './App';
 
-const rootElement = document.getElementById("root");
-render(<App />, rootElement);
+import { Grommet } from 'grommet';
+
+const rootElement = document.getElementById('root');
+render(
+  <Grommet>
+    <App />
+  </Grommet>,
+  rootElement
+);
