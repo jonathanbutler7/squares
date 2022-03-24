@@ -4,13 +4,13 @@ I created this repo as part of the interview process for Ripple.
 
 This project includes 3 different solutions to the "Project description" statement below.
 
-1. hash table
-2. 1d Array
-3. Document selector API
+1. Hash table
+2. 1D Array
+3. Document selector API (and 2D array/matrix)
 
 The hash table and 1d array solutions focus on the React paradigm for state management, namely the `useState` hook.
 
-The document selector API solution is not necessarily a React-appropriate solution, but I wanted to try it out as an experiment because it avoids a lot of the logic that the other two solutions require.
+The document selector API solution is not necessarily a React-appropriate solution, because it directly manipulates the DOM. But I wanted to try it out as an experiment because it querying the DOM circumvents a lot of the logic that is required by manipulating application state.
 
 # How to run this project
 
