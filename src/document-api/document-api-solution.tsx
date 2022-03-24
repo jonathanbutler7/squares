@@ -1,6 +1,12 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 type Coordinates = { x: number; y: number };
+
+enum ColorNames {
+  Red = 'red',
+  Blue = 'blue',
+  Green = 'green',
+}
 
 const GRID_SIZE = 4;
 
@@ -13,6 +19,7 @@ const getNeighbors = ({
   const hasCellToRight = y < gridSize - 1;
   const hasCellAbove = x > 0;
   const hasCellBelow = x < gridSize - 1;
+
   const northId = hasCellAbove && `${(x - 1).toString()}${y}`;
   const southId = hasCellBelow && `${(x + 1).toString()}${y}`;
   const westId = hasCellToLeft && `${x}${(y - 1).toString()}`;
@@ -33,35 +40,37 @@ export const DocumentApiSolution = () => {
 
   const incrementClicksCount = () =>
     setClicksCount((clicksCount) => clicksCount + 1);
+
   const resetClicks = () => setClicksCount(0);
 
   const handleClick = ({ x, y }: Coordinates) => {
     const neighbors = getNeighbors({ x, y, gridSize });
+
     const clickedCell = getElementById(
       x.toString() + y.toString()
     ) as HTMLElement;
     const prevBackground = clickedCell?.style.background;
 
-    if (prevBackground === 'red') {
-      clickedCell.style.background = 'blue';
+    if (prevBackground === ColorNames.Red) {
+      clickedCell.style.background = ColorNames.Blue;
     }
-    if (prevBackground === 'blue') {
-      clickedCell.style.background = 'green';
+    if (prevBackground === ColorNames.Blue) {
+      clickedCell.style.background = ColorNames.Green;
       neighbors.forEach((cellId) => {
         if (!cellId) return;
         const cell = document.getElementById(cellId) as HTMLDivElement;
-        cell.style.background = 'blue';
+        cell.style.background = ColorNames.Blue;
       });
     }
-    if (prevBackground === 'green') {
+    if (prevBackground === ColorNames.Green) {
       neighbors.forEach((cellId) => {
         if (cellId) {
           const cell = document.getElementById(cellId) as HTMLDivElement;
           const prevBackground = cell?.style.background;
-          if (prevBackground === 'red') {
-            cell.style.background = 'blue';
+          if (prevBackground === ColorNames.Red) {
+            cell.style.background = ColorNames.Blue;
           } else {
-            cell.style.background = 'green';
+            cell.style.background = ColorNames.Green;
           }
         }
       });
@@ -70,7 +79,7 @@ export const DocumentApiSolution = () => {
 
   const handleReset = () => {
     Array.from(document.querySelectorAll('.cell')).forEach((cell) => {
-      cell.style.background = 'red';
+      cell.style.background = ColorNames.Red;
     });
     resetClicks();
   };
@@ -102,7 +111,7 @@ export const DocumentApiSolution = () => {
                   handleClick({ x, y });
                   incrementClicksCount();
                 }}
-                style={{ background: 'red' }}
+                style={{ background: ColorNames.Red }}
               />
             ))}
           </div>

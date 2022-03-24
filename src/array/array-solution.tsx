@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Square } from '../shared/components/square';
 import {
   getSquareNeighbors,
@@ -6,18 +6,27 @@ import {
   Neighbors,
   getNextColorCode,
 } from '../shared';
+import { GameStatus } from '../shared/components/game-status';
 
 type ISquare = { colorCode: 0 | 1 | 2 | undefined };
 
 const GRID_SIZE = 4;
 
+const isGridAllGreen = (squares: ISquare[]) =>
+  squares.every((square) => square.colorCode === ColorCodes.Green);
+
 export const HooksSolution = () => {
   const [clicks, setClicks] = useState(0);
   const [gridSize, setGridSize] = useState(GRID_SIZE);
+  const [isGameOver, setIsGameOver] = useState(false);
   const GRID = Array(gridSize * gridSize).fill(null);
   const [squares, setSquares] = useState<ISquare[]>(
     GRID.map(() => ({ colorCode: ColorCodes.Red }))
   );
+
+  useEffect(() => {
+    setIsGameOver(isGridAllGreen(squares));
+  }, [squares]);
 
   const resetColors = () => {
     setSquares(squares.map(() => ({ colorCode: ColorCodes.Red })));
@@ -142,20 +151,14 @@ export const HooksSolution = () => {
         ))}
       </div>
       <br />
-      <p>
-        <b>Clicks:</b> {clicks}
-      </p>
-      <button
-        disabled={clicks === 0}
-        onClick={() => {
+      <GameStatus
+        isGameOver={isGameOver}
+        clicks={clicks}
+        handleReset={() => {
           resetClicks();
           resetColors();
         }}
-      >
-        Reset game
-      </button>
-      <br />
-      <br />
+      />
     </>
   );
 };

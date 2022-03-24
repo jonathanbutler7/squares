@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
 .App {
-  font-family: sans-serif;
+  font-family: 'Open Sans', sans-serif;
   text-align: center;
 }
 
@@ -16,11 +18,16 @@
 }
 
 .cell {
-  border: 2px solid black;
-  height: 40px;
-  width: 40px;
+  min-height: 40px;
+  min-width: 40px;
 }
 
-.cell:focus {
-  outline: 4px solid pink;
+.square:hover,
+.square:focus,
+.cell:focus,
+.cell:hover {
+  box-shadow: 2px 2px 0 0 #000;
+  transform: translate(-2px, -2px);
+  transition: all 250ms ease-in-out;
+  outline: none;
 }

@@ -1,16 +1,18 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   ColorCodes,
   getSquareNeighbors,
   Neighbors,
   getNextColorCode,
+  ISquare,
 } from '../shared';
+import { GameStatus } from '../shared/components/game-status';
 import { Square } from '../shared/components/square';
 
 const GRID_SIZE = 4;
 
 const getGrid = (gridSize: number) => {
-  let gridValues: Record<number, { colorCode: 0 | 1 | 2 | undefined }> = {};
+  let gridValues: ISquare = {};
 
   for (let i = 0; i < gridSize * gridSize; i++) {
     gridValues[i] = { colorCode: ColorCodes.Red };
@@ -21,9 +23,19 @@ const getGrid = (gridSize: number) => {
 
 const initialState = getGrid(GRID_SIZE);
 
+const isGridAllGreen = (squares: ISquare) =>
+  Object.values(squares).every(
+    (square) => square.colorCode === ColorCodes.Green
+  );
+
 export const HashTableSolution = () => {
   const [squares, setSquares] = useState(initialState);
   const [clicks, setClicks] = useState(0);
+  const [isGameOver, setIsGameOver] = useState(false);
+
+  useEffect(() => {
+    setIsGameOver(isGridAllGreen(squares));
+  }, [squares]);
 
   const handleBlueClick = ({
     squareId,
@@ -115,11 +127,6 @@ export const HashTableSolution = () => {
     });
   };
 
-  const handleReset = () => {
-    setClicks(0);
-    setSquares(initialState);
-  };
-
   return (
     <>
       <h1>Hash table solution </h1>
@@ -141,12 +148,14 @@ export const HashTableSolution = () => {
           />
         ))}
       </div>
-      <p>
-        <b>Clicks:</b> {clicks}
-      </p>
-      <button disabled={clicks === 0} onClick={handleReset}>
-        Reset game
-      </button>
+      <GameStatus
+        isGameOver={isGameOver}
+        clicks={clicks}
+        handleReset={() => {
+          setClicks(0);
+          setSquares(initialState);
+        }}
+      />
     </>
   );
 };
