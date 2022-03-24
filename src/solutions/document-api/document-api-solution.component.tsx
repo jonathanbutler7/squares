@@ -88,19 +88,30 @@ export const DocumentApiSolution = () => {
   return (
     <>
       <h1>Solution using 2D Array and document API</h1>
-      <div className='grid'>
+      <div
+        className='grid'
+        style={{ display: 'inline-flex', flexDirection: 'column', width: 400 }}
+      >
         {GRID.map((rows, x) => (
-          <div className='row' key={x}>
+          <div
+            style={{ display: 'flex', flexDirection: 'row', border: 'none' }}
+            key={x}
+          >
             {rows.map((_, y) => (
               <button
                 className='cell'
+                style={{
+                  minHeight: 100,
+                  minWidth: 100,
+                  border: '1px solid black',
+                  background: ColorRGBValues.Red,
+                }}
                 id={x.toString() + y.toString()}
                 key={y}
                 onClick={() => {
                   handleClick({ x, y });
                   incrementClicksCount();
                 }}
-                style={{ background: ColorRGBValues.Red }}
               ></button>
             ))}
           </div>

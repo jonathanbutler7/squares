@@ -5,21 +5,7 @@ button {
 }
 
 .grid {
-  display: inline-flex;
-  flex-direction: column;
-  width: 400px;
-}
-
-.row {
-  display: flex;
-  flex-direction: row;
-  border: none;
-}
-
-.cell {
-  min-height: 100px;
-  min-width: 100px;
-  border: 1px solid black;
+  
 }
 
 .square:hover,

@@ -11,10 +11,10 @@ export const Square = ({ colorCode, onClick }: SquareProps) => (
       width: '100%',
     }}
     /**
-     * Because the buttons don't display any text, I'm adding the aria-label
+     * Because the buttons don't contain text, I'm adding the aria-label
      * so screen readers can read the color of the square.
      */
-    aria-label={`Square color: ${getScreenReaderColor(colorCode)}`}
+    aria-label={`${getScreenReaderColor(colorCode)} square`}
     className='square'
     onClick={onClick}
   ></button>
