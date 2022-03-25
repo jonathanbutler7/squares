@@ -16,7 +16,7 @@ export const Grid = ({ children, gridSize }: GridProps) => (
       border: '1px solid gray',
       display: 'grid',
       gridTemplate: `repeat(${gridSize}, 1fr) / repeat(${gridSize}, 1fr)`,
-      maxWidth: 400,
+      maxWidth: gridSize * 100,
     }}
   >
     {children}

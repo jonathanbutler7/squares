@@ -8,9 +8,9 @@ export function App() {
   return (
     <>
       <ProjectDescription />
-      <ArraySolution />
+      {/* <ArraySolution /> */}
       <HashTableSolution />
-      <DocumentApiSolution />
+      {/* <DocumentApiSolution /> */}
     </>
   );
 }

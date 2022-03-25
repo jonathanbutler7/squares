@@ -30,6 +30,7 @@ const isGridAllGreen = (squares: ISquare) =>
 export const HashTableSolution = () => {
   const [squares, setSquares] = useState(initialState);
   const [clicks, setClicks] = useState(0);
+  const [gridSize, setGridSize] = useState(GRID_SIZE);
   const [isGameOver, setIsGameOver] = useState(false);
 
   useEffect(() => {
@@ -38,7 +39,7 @@ export const HashTableSolution = () => {
 
   const handleReset = () => {
     setClicks(0);
-    setSquares(initialState);
+    setSquares(assembleGrid(gridSize));
   };
 
   const validateNeighborsAfterBlueClicked = (neighbor: Neighbor) => ({
@@ -60,7 +61,7 @@ export const HashTableSolution = () => {
 
   const handleClick = (squareId: number) => {
     const { leftNeighbor, rightNeighbor, topNeighbor, bottomNeighbor } =
-      getSquareNeighbors({ squareId, gridSize: GRID_SIZE });
+      getSquareNeighbors({ squareId, gridSize });
 
     setSquares((squares) => {
       if (squares[squareId].colorCode === ColorCodes.Red) {
@@ -96,8 +97,18 @@ export const HashTableSolution = () => {
   return (
     <>
       <h1>Solution using hash table</h1>
-
-      <Grid gridSize={GRID_SIZE}>
+      <select
+        onChange={(e) => {
+          setGridSize(+e.target.value);
+          setSquares(assembleGrid(+e.target.value));
+        }}
+      >
+        <option value='4'>4</option>
+        <option value='5'>5</option>
+        <option value='6'>6</option>
+      </select>
+      Grid size: {gridSize}
+      <Grid gridSize={gridSize}>
         {Object.values(squares).map((square, squareId) => (
           <Square
             key={squareId}
@@ -109,7 +120,6 @@ export const HashTableSolution = () => {
           />
         ))}
       </Grid>
-
       <GameStatus
         isGameOver={isGameOver}
         clicks={clicks}
