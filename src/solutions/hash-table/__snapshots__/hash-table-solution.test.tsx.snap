@@ -261,32 +261,40 @@ exports[`Hash table solution should should render 1`] = `
       }
     />
   </section>,
-  <p>
-    <b>
-      Clicks:
-    </b>
-     
-    0
-  </p>,
-  <button
-    className="reset-button"
-    disabled={true}
-    onClick={[Function]}
+  <div
     style={
       {
-        "background": "#ff8fe7",
-        "border": "1px solid transparent",
-        "borderRadius": 4,
-        "boxShadow": "none",
-        "height": 40,
-        "transform": "none",
-        "transition": "all 250ms ease-in-out",
+        "borderBottom": "1px solid gainsboro",
       }
     }
   >
-    Reset game
-  </button>,
-  <hr />,
+    <p>
+      <b>
+        Clicks:
+      </b>
+       
+      0
+    </p>
+    <button
+      className="reset-button"
+      disabled={true}
+      onClick={[Function]}
+      style={
+        {
+          "background": "#ff8fe7",
+          "border": "1px solid transparent",
+          "borderRadius": 4,
+          "boxShadow": "none",
+          "height": 40,
+          "marginBottom": 16,
+          "transform": "none",
+          "transition": "all 250ms ease-in-out",
+        }
+      }
+    >
+      Reset game
+    </button>
+  </div>,
 ]
 `;
 
@@ -551,31 +559,39 @@ exports[`Hash table solution should should render 2`] = `
       }
     />
   </section>,
-  <p>
-    <b>
-      Clicks:
-    </b>
-     
-    0
-  </p>,
-  <button
-    className="reset-button"
-    disabled={true}
-    onClick={[Function]}
+  <div
     style={
       {
-        "background": "#ff8fe7",
-        "border": "1px solid transparent",
-        "borderRadius": 4,
-        "boxShadow": "none",
-        "height": 40,
-        "transform": "none",
-        "transition": "all 250ms ease-in-out",
+        "borderBottom": "1px solid gainsboro",
       }
     }
   >
-    Reset game
-  </button>,
-  <hr />,
+    <p>
+      <b>
+        Clicks:
+      </b>
+       
+      0
+    </p>
+    <button
+      className="reset-button"
+      disabled={true}
+      onClick={[Function]}
+      style={
+        {
+          "background": "#ff8fe7",
+          "border": "1px solid transparent",
+          "borderRadius": 4,
+          "boxShadow": "none",
+          "height": 40,
+          "marginBottom": 16,
+          "transform": "none",
+          "transition": "all 250ms ease-in-out",
+        }
+      }
+    >
+      Reset game
+    </button>
+  </div>,
 ]
 `;

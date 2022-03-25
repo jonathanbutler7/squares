@@ -9,6 +9,7 @@ const buttonStyle = (isDisabled: boolean) => ({
   transform: isDisabled ? 'none' : 'translate(-2px, -2px)',
   border: isDisabled ? '1px solid transparent' : '1px solid black',
   transition: 'all 250ms ease-in-out',
+  marginBottom: 16,
   borderRadius: 4,
   height: 40,
   background: '#ff8fe7',
@@ -22,7 +23,7 @@ export const GameStatus = ({
   const isDisabled = clicks === 0;
 
   return (
-    <>
+    <div style={{ borderBottom: '1px solid gainsboro' }}>
       <p>
         <b>Clicks:</b> {clicks}
       </p>
@@ -35,8 +36,6 @@ export const GameStatus = ({
       >
         Reset game
       </button>
-
-      <hr />
-    </>
+    </div>
   );
 };

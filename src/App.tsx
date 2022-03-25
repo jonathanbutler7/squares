@@ -6,11 +6,11 @@ import { HashTableSolution } from './solutions/hash-table/hash-table-solution.co
 
 export function App() {
   return (
-    <>
+    <main>
       <ProjectDescription />
       <ArraySolution />
       <HashTableSolution />
       <DocumentApiSolution />
-    </>
+    </main>
   );
 }
