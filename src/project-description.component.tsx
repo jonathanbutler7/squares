@@ -43,11 +43,13 @@ export const ProjectDescription = () => (
     </details>
     <details>
       <summary>Why are there 3 solutions?</summary>
+      <h1>Solutions</h1>
       <ol>
         <li>1D Array</li>
         <li>Hash table</li>
         <li>Document selector API (and 2D array/matrix)</li>
       </ol>
+      <h1>Rationale</h1>
       <p>
         The hash table and 1d array solutions focus on the React paradigm for
         state management, namely the `useState` hook.{' '}

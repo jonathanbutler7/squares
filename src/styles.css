@@ -4,6 +4,49 @@
   font-family: 'Open Sans', sans-serif;
 }
 
+details {
+  margin-bottom: 8px;
+  padding-left: 16px;
+  border-radius: 5px;
+  overflow: hidden;
+  border-left: 5px solid #1ea094;
+  box-shadow: 0 4px 16px -4px rgba(128, 128, 128, 0.4);
+  transition: all 250ms ease;
+}
+
+summary {
+  padding: 16px;
+  display: block;
+  padding-left: 24px;
+  position: relative;
+  cursor: pointer;
+}
+
+details:hover {
+  box-shadow: 0 4px 16px -4px rgba(91, 91, 91, 0.488);
+}
+
+summary:before {
+  content: '';
+  border-width: 6px;
+  border-style: solid;
+  border-color: transparent transparent transparent #1ea094;
+  position: absolute;
+  top: 22px;
+  left: 4px;
+  transform: rotate(0);
+  transform-origin: 3px 50%;
+  transition: 250ms transform ease;
+}
+
+details[open] > summary:before {
+  transform: rotate(90deg);
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}
+
 .square:hover,
 .square:focus,
 .cell:focus,
