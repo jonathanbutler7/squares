@@ -47,12 +47,12 @@ export const ProjectDescription = () => (
       <ol>
         <li>1D Array</li>
         <li>Hash table</li>
-        <li>Document selector API (and 2D array/matrix)</li>
+        <li>2D array/matrix (and document selector API)</li>
       </ol>
       <h1>Rationale</h1>
       <p>
         The hash table and 1d array solutions focus on the React paradigm for
-        state management, namely the `useState` hook.{' '}
+        state management, namely the `useState` hook.
       </p>
       <p>
         The document selector API solution is not necessarily a

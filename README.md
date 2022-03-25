@@ -4,7 +4,7 @@ This project includes 3 different solutions to the "Project description" stateme
 
 1. Hash table
 2. 1D Array
-3. Document selector API (and 2D array/matrix)
+3. 2D array/matrix (and document selector API)
 
 The hash table and 1d array solutions focus on the React paradigm for state management, namely the `useState` hook.
 
