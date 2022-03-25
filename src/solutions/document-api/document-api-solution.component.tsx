@@ -122,10 +122,10 @@ export const DocumentApiSolution = () => {
               <button
                 className='cell'
                 style={{
+                  background: ColorRGBValues.Red,
+                  border: '1px solid black',
                   minHeight: 100,
                   minWidth: 100,
-                  border: '1px solid black',
-                  background: ColorRGBValues.Red,
                 }}
                 id={x.toString() + y.toString()}
                 key={y}

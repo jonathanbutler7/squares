@@ -8,7 +8,8 @@ import {
   Grid,
   IColorCode,
   GRID_SIZE,
-  Neighbor,SelectGridSize 
+  Neighbor,
+  SelectGridSize,
 } from '../../shared';
 
 type ISquare = { colorCode: IColorCode };
@@ -109,10 +110,10 @@ export const ArraySolution = () => {
           />
         ))}
       </Grid>
-    
+
       <GameStatus
-        isGameOver={isGameOver}
         clicks={clicks}
+        isGameOver={isGameOver}
         handleReset={() => {
           resetClicks();
           resetColors();

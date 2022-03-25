@@ -121,9 +121,9 @@ export const HashTableSolution = () => {
       </Grid>
 
       <GameStatus
-        isGameOver={isGameOver}
         clicks={clicks}
         handleReset={handleReset}
+        isGameOver={isGameOver}
       />
     </>
   );
