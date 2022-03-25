@@ -6,7 +6,7 @@ export const Square = ({ colorCode, onClick }: SquareProps) => (
   <button
     style={{
       background: getBackgroundColor(colorCode),
-      height: 80,
+      height: 100,
       border: '1px solid black',
       width: '100%',
     }}
