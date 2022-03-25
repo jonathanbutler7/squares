@@ -8,9 +8,8 @@ import {
   Grid,
   IColorCode,
   GRID_SIZE,
-  Neighbor,
+  Neighbor,SelectGridSize 
 } from '../../shared';
-import { SelectGridSize } from '../../shared/components/select-grid-size.component';
 
 type ISquare = { colorCode: IColorCode };
 

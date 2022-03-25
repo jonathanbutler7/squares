@@ -1,4 +1,8 @@
-type SelectGridSizeProps = { handleGridSizeChange: (e: any) => void };
+import { ChangeEvent } from 'react';
+
+type SelectGridSizeProps = {
+  handleGridSizeChange: (e: ChangeEvent<HTMLSelectElement>) => void;
+};
 
 const GRID_SIZE_OPTIONS = [4, 5, 6];
 
@@ -15,7 +19,9 @@ export const SelectGridSize = ({
       style={{ marginBottom: 16 }}
     >
       {GRID_SIZE_OPTIONS.map((size) => (
-        <option value={size}>{size}</option>
+        <option key={size} value={size}>
+          {size}
+        </option>
       ))}
     </select>
   </div>

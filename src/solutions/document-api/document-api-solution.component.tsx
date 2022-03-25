@@ -1,6 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { ColorRGBValues, GameStatus, GRID_SIZE } from '../../shared';
-import { SelectGridSize } from '../../shared/components/select-grid-size.component';
+import { useEffect, useState } from 'react';
+import {
+  SelectGridSize,
+  ColorRGBValues,
+  GameStatus,
+  GRID_SIZE,
+} from '../../shared';
 
 type Coordinates = { x: number; y: number };
 
