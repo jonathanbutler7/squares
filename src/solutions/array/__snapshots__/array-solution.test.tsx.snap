@@ -5,6 +5,43 @@ exports[`Array solution should should render 1`] = `
   <h1>
     Solution using 1D Array
   </h1>,
+  <div>
+    <label
+      htmlFor="grid-size-options"
+      style={
+        {
+          "marginRight": 8,
+        }
+      }
+    >
+      Change grid size:
+    </label>
+    <select
+      name="grid-size-options"
+      onChange={[Function]}
+      style={
+        {
+          "marginBottom": 16,
+        }
+      }
+    >
+      <option
+        value={4}
+      >
+        4
+      </option>
+      <option
+        value={5}
+      >
+        5
+      </option>
+      <option
+        value={6}
+      >
+        6
+      </option>
+    </select>
+  </div>,
   <section
     style={
       {
@@ -258,6 +295,43 @@ exports[`Array solution should should render 2`] = `
   <h1>
     Solution using 1D Array
   </h1>,
+  <div>
+    <label
+      htmlFor="grid-size-options"
+      style={
+        {
+          "marginRight": 8,
+        }
+      }
+    >
+      Change grid size:
+    </label>
+    <select
+      name="grid-size-options"
+      onChange={[Function]}
+      style={
+        {
+          "marginBottom": 16,
+        }
+      }
+    >
+      <option
+        value={4}
+      >
+        4
+      </option>
+      <option
+        value={5}
+      >
+        5
+      </option>
+      <option
+        value={6}
+      >
+        6
+      </option>
+    </select>
+  </div>,
   <section
     style={
       {
