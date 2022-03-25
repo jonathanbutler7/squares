@@ -2,6 +2,8 @@
 
 * {
   font-family: 'Open Sans', sans-serif;
+  --green: #1ea094;
+  --transition: all 250ms ease-in-out;
 }
 
 details {
@@ -9,9 +11,9 @@ details {
   padding-left: 16px;
   border-radius: 5px;
   overflow: hidden;
-  border-left: 5px solid #1ea094;
+  border-left: 5px solid var(--green);
   box-shadow: 0 4px 16px -4px rgba(128, 128, 128, 0.4);
-  transition: all 250ms ease;
+  transition: var(--transition);
 }
 
 summary {
@@ -30,13 +32,13 @@ summary:before {
   content: '';
   border-width: 6px;
   border-style: solid;
-  border-color: transparent transparent transparent #1ea094;
+  border-color: transparent transparent transparent var(--green);
   position: absolute;
   top: 22px;
   left: 4px;
   transform: rotate(0);
   transform-origin: 3px 50%;
-  transition: 250ms transform ease;
+  transition: var(--transition);
 }
 
 details[open] > summary:before {
@@ -47,6 +49,24 @@ details summary::-webkit-details-marker {
   display: none;
 }
 
+select {
+  border: 1px solid gray;
+  border-radius: 4px;
+  background: none;
+  padding: 4px;
+  width: 50px;
+  transition: var(--transition);
+}
+
+select:hover {
+  border: 1px solid var(--green);
+}
+
+select:focus {
+  box-shadow: 2px 2px 0 0 #000;
+  outline: none;
+}
+
 .square:hover,
 .square:focus,
 .cell:focus,
@@ -55,7 +75,7 @@ details summary::-webkit-details-marker {
 .reset-button:focus {
   box-shadow: 2px 2px 0 0 #000;
   transform: translate(-2px, -2px);
-  transition: all 150ms ease-in-out;
+  transition: var(--transition);
   outline: none;
 }
 

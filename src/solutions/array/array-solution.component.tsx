@@ -110,6 +110,7 @@ export const ArraySolution = () => {
           />
         ))}
       </Grid>
+    
       <GameStatus
         isGameOver={isGameOver}
         clicks={clicks}

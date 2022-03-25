@@ -41,9 +41,6 @@ export const DocumentApiSolution = () => {
     );
   }, [clicks]);
 
-  const incrementClicksCount = () =>
-    setClicks((clicksCount) => clicksCount + 1);
-
   const resetClicks = () => setClicks(0);
 
   const handleClick = ({ x, y }: Coordinates) => {
@@ -91,19 +88,19 @@ export const DocumentApiSolution = () => {
   return (
     <>
       <h1>Solution using 2D Array and document API</h1>
-      
-        <SelectGridSize
-          handleGridSizeChange={(e) => {
-            setGridSize(+e.target.value);
-            setGrid(
-              Array(+e.target.value)
-                .fill(null)
-                .map(() => Array(+e.target.value).fill(null))
-            );
-            handleReset();
-          }}
-        />
-      
+
+      <SelectGridSize
+        handleGridSizeChange={(e) => {
+          setGridSize(+e.target.value);
+          setGrid(
+            Array(+e.target.value)
+              .fill(null)
+              .map(() => Array(+e.target.value).fill(null))
+          );
+          handleReset();
+        }}
+      />
+
       <div
         className='grid'
         style={{
@@ -130,13 +127,14 @@ export const DocumentApiSolution = () => {
                 key={y}
                 onClick={() => {
                   handleClick({ x, y });
-                  incrementClicksCount();
+                  setClicks((clicksCount) => clicksCount + 1);
                 }}
               ></button>
             ))}
           </div>
         ))}
       </div>
+
       <GameStatus
         isGameOver={isGameOver}
         clicks={clicks}

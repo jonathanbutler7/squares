@@ -98,6 +98,7 @@ export const HashTableSolution = () => {
   return (
     <>
       <h1>Solution using hash table</h1>
+     
       <SelectGridSize
         handleGridSizeChange={(e) => {
           setGridSize(+e.target.value);
@@ -117,7 +118,9 @@ export const HashTableSolution = () => {
             }}
           />
         ))}
+
       </Grid>
+     
       <GameStatus
         isGameOver={isGameOver}
         clicks={clicks}
