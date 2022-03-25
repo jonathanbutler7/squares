@@ -24,8 +24,9 @@ summary {
   cursor: pointer;
 }
 
-details:hover {
-  box-shadow: 0 4px 16px -4px rgba(91, 91, 91, 0.488);
+details:hover,
+details:focus {
+  box-shadow: 0 4px 16px -4px rgb(91, 91, 91);
 }
 
 summary:before {
