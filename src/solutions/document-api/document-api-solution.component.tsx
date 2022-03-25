@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { ColorRGBValues, GameStatus, GRID_SIZE } from '../../shared';
+import { SelectGridSize } from '../../shared/components/select-grid-size.component';
 
 type Coordinates = { x: number; y: number };
 
@@ -90,22 +91,19 @@ export const DocumentApiSolution = () => {
   return (
     <>
       <h1>Solution using 2D Array and document API</h1>
-      <select
-        onChange={(e) => {
-          setGridSize(+e.target.value);
-          setGrid(
-            Array(+e.target.value)
-              .fill(null)
-              .map(() => Array(+e.target.value).fill(null))
-          );
-          handleReset();
-        }}
-      >
-        {[4, 5, 6].map((size) => (
-          <option value={size}>{size}</option>
-        ))}
-      </select>
-      Grid size: {gridSize}
+      
+        <SelectGridSize
+          handleGridSizeChange={(e) => {
+            setGridSize(+e.target.value);
+            setGrid(
+              Array(+e.target.value)
+                .fill(null)
+                .map(() => Array(+e.target.value).fill(null))
+            );
+            handleReset();
+          }}
+        />
+      
       <div
         className='grid'
         style={{

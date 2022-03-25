@@ -8,8 +8,8 @@ export function App() {
   return (
     <>
       <ProjectDescription />
-      {/* <ArraySolution /> */}
-      {/* <HashTableSolution /> */}
+      <ArraySolution />
+      <HashTableSolution />
       <DocumentApiSolution />
     </>
   );

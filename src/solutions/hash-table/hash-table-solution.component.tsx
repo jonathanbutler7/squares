@@ -9,6 +9,7 @@ import {
   GRID_SIZE,
   Neighbor,
 } from '../../shared';
+import { SelectGridSize } from '../../shared/components/select-grid-size.component';
 
 const assembleGrid = (gridSize: number) => {
   let gridValues: ISquare = {};
@@ -97,17 +98,14 @@ export const HashTableSolution = () => {
   return (
     <>
       <h1>Solution using hash table</h1>
-      <select
-        onChange={(e) => {
+      <SelectGridSize
+        handleGridSizeChange={(e) => {
           setGridSize(+e.target.value);
           setSquares(assembleGrid(+e.target.value));
+          setClicks(0);
         }}
-      >
-        <option value='4'>4</option>
-        <option value='5'>5</option>
-        <option value='6'>6</option>
-      </select>
-      Grid size: {gridSize}
+      />
+
       <Grid gridSize={gridSize}>
         {Object.values(squares).map((square, squareId) => (
           <Square

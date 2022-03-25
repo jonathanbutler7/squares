@@ -10,6 +10,7 @@ import {
   GRID_SIZE,
   Neighbor,
 } from '../../shared';
+import { SelectGridSize } from '../../shared/components/select-grid-size.component';
 
 type ISquare = { colorCode: IColorCode };
 
@@ -85,21 +86,18 @@ export const ArraySolution = () => {
   return (
     <>
       <h1>Solution using 1D Array</h1>
-      <select
-        onChange={(e) => {
+      <SelectGridSize
+        handleGridSizeChange={(e) => {
           setGridSize(+e.target.value);
           setSquares(
             Array(+e.target.value * +e.target.value)
               .fill(null)
               .map(() => ({ colorCode: ColorCodes.Red }))
           );
+          resetClicks();
         }}
-      >
-        {[4, 5, 6].map((size) => (
-          <option value={size}>{size}</option>
-        ))}
-      </select>
-      Grid size: {gridSize}
+      />
+
       <Grid gridSize={gridSize}>
         {squares.map((square, squareId) => (
           <Square
