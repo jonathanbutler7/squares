@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import {
-  SelectGridSize,
   ColorRGBValues,
-  GameStatus,
   GRID_SIZE,
+  GameStatus,
+  SelectGridSize,
 } from '../../shared';
 
 type Coordinates = { x: number; y: number };

@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
 import {
   ColorCodes,
-  getSquareNeighbors,
-  ISquare,
+  GRID_SIZE,
   GameStatus,
   Grid,
-  Square,
-  GRID_SIZE,
+  ISquare,
   Neighbor,
   SelectGridSize,
+  Square,
+  getSquareNeighbors,
 } from '../../shared';
 
 const assembleGrid = (gridSize: number) => {
