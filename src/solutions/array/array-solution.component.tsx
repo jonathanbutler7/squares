@@ -19,7 +19,8 @@ const isGridAllGreen = (squares: ISquare[]) =>
 export const ArraySolution = () => {
   const [clicks, setClicks] = useState(0);
   const [isGameOver, setIsGameOver] = useState(false);
-  const GRID = Array(GRID_SIZE * GRID_SIZE).fill(null);
+  const [gridSize, setGridSize] = useState(GRID_SIZE);
+  const GRID = Array(gridSize * gridSize).fill(null);
   const [squares, setSquares] = useState<ISquare[]>(
     GRID.map(() => ({ colorCode: ColorCodes.Red }))
   );
@@ -44,18 +45,18 @@ export const ArraySolution = () => {
 
   const validateNeighborsAfterGreenClicked = (neighbor: Neighbor) => {
     if (neighbor !== undefined) {
-      if (squares[neighbor].colorCode === ColorCodes.Red) {
-        squares[neighbor].colorCode = ColorCodes.Blue;
-      }
       if (squares[neighbor].colorCode === ColorCodes.Blue) {
         squares[neighbor].colorCode = ColorCodes.Green;
+      }
+      if (squares[neighbor].colorCode === ColorCodes.Red) {
+        squares[neighbor].colorCode = ColorCodes.Blue;
       }
     }
   };
 
   const handleClick = (squareId: number) => {
     const { leftNeighbor, rightNeighbor, topNeighbor, bottomNeighbor } =
-      getSquareNeighbors({ squareId, gridSize: GRID_SIZE });
+      getSquareNeighbors({ squareId, gridSize });
 
     setSquares(
       squares.map((square, index) => {
@@ -84,8 +85,22 @@ export const ArraySolution = () => {
   return (
     <>
       <h1>Solution using 1D Array</h1>
-
-      <Grid gridSize={GRID_SIZE}>
+      <select
+        onChange={(e) => {
+          setGridSize(+e.target.value);
+          setSquares(
+            Array(+e.target.value * +e.target.value)
+              .fill(null)
+              .map(() => ({ colorCode: ColorCodes.Red }))
+          );
+        }}
+      >
+        {[4, 5, 6].map((size) => (
+          <option value={size}>{size}</option>
+        ))}
+      </select>
+      Grid size: {gridSize}
+      <Grid gridSize={gridSize}>
         {squares.map((square, squareId) => (
           <Square
             key={squareId}
@@ -97,7 +112,6 @@ export const ArraySolution = () => {
           />
         ))}
       </Grid>
-
       <GameStatus
         isGameOver={isGameOver}
         clicks={clicks}

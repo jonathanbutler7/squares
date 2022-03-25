@@ -26,6 +26,12 @@ const getElementById = (id: string) => document.getElementById(id);
 export const DocumentApiSolution = () => {
   const [clicks, setClicks] = useState(0);
   const [isGameOver, setIsGameOver] = useState(false);
+  const [gridSize, setGridSize] = useState(GRID_SIZE);
+  const [grid, setGrid] = useState(
+    Array(gridSize)
+      .fill(null)
+      .map(() => Array(gridSize).fill(null))
+  );
 
   useEffect(() => {
     const cells = Array.from(document.querySelectorAll('.cell'));
@@ -34,17 +40,13 @@ export const DocumentApiSolution = () => {
     );
   }, [clicks]);
 
-  const GRID = Array(GRID_SIZE)
-    .fill(null)
-    .map(() => Array(GRID_SIZE).fill(null));
-
   const incrementClicksCount = () =>
     setClicks((clicksCount) => clicksCount + 1);
 
   const resetClicks = () => setClicks(0);
 
   const handleClick = ({ x, y }: Coordinates) => {
-    const neighbors = getNeighbors({ x, y, gridSize: GRID_SIZE });
+    const neighbors = getNeighbors({ x, y, gridSize });
 
     const clickedCell = getElementById(
       x.toString() + y.toString()
@@ -88,11 +90,31 @@ export const DocumentApiSolution = () => {
   return (
     <>
       <h1>Solution using 2D Array and document API</h1>
+      <select
+        onChange={(e) => {
+          setGridSize(+e.target.value);
+          setGrid(
+            Array(+e.target.value)
+              .fill(null)
+              .map(() => Array(+e.target.value).fill(null))
+          );
+          handleReset();
+        }}
+      >
+        {[4, 5, 6].map((size) => (
+          <option value={size}>{size}</option>
+        ))}
+      </select>
+      Grid size: {gridSize}
       <div
         className='grid'
-        style={{ display: 'inline-flex', flexDirection: 'column', width: 400 }}
+        style={{
+          display: 'inline-flex',
+          flexDirection: 'column',
+          width: gridSize * 100,
+        }}
       >
-        {GRID.map((rows, x) => (
+        {grid.map((rows, x) => (
           <div
             style={{ display: 'flex', flexDirection: 'row', border: 'none' }}
             key={x}
@@ -117,7 +139,6 @@ export const DocumentApiSolution = () => {
           </div>
         ))}
       </div>
-
       <GameStatus
         isGameOver={isGameOver}
         clicks={clicks}
